@@ -73,11 +73,13 @@ npm test
 
 **2026 年 10 月 11 日，已由用户在本机输入自己的 Token，完成真实账号读取、故事生成和 PNG 下载。** 页面显示了实际订单来源、样本范围与餐品依据，并排除了完成状态未确认的记录。该验证覆盖最小使用流程；协议错误、套餐展开等边界另由本地合成测试覆盖，未逐项用真实账号重现。
 
-项目仓库：https://github.com/danielliao/mcd-mini-theater 。公开仓库与作品包仅含虚构示例，不包含本次真实订单图片、原始响应或 Token。报名是否成功以官方报名 Issue 的系统回复为准。
+项目仓库：https://github.com/danielliao/mcd-mini-theater 。公开仓库与作品包仅含虚构示例，不包含本次真实订单图片、原始响应或 Token。
+
+已于 2026 年 10 月 11 日提交 [正式参赛申请 #435](https://github.com/M-China/mcd-developer-innovation-challenge/issues/435)，等待官方系统确认。报名是否成功以该 Issue 的系统回复为准。
 
 ## 参赛材料
 
-已包含 `README.md`、官方原文 `CONTEST_DECLARATION.md`、`MCP_INTEGRATION.md`、仅含环境变量占位符的 `mcp-config.example.json`、Skill 与可运行源代码。另附 `SUBMISSION.md` 作为公开项目地址确认后使用的报名文案草稿。
+已包含 `README.md`、官方原文 `CONTEST_DECLARATION.md`、`MCP_INTEGRATION.md`、仅含环境变量占位符的 `mcp-config.example.json`、Skill 与可运行源代码。另附 `SUBMISSION.md` 保存实际提交的报名内容与官方 Issue 链接。
 
 作品不附 `workbuddy.md`，因为当前开发没有真实使用 WorkBuddy，不申报该专项开发条件。报名时间和资格以 [官方活动规则](https://github.com/M-China/mcd-developer-innovation-challenge/blob/main/activityGuidelines.md) 为准。
 
