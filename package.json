@@ -1,0 +1,15 @@
+{
+  "name": "mcd-mini-theater",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "把近期麦当劳订单变成一张有事实依据的食物群聊分享图。",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "demo": "node scripts/generate.mjs --demo --output generated",
+    "collect": "node scripts/collect.mjs --output generated/orders.sanitized.json",
+    "build": "node scripts/bundle.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}

@@ -1,0 +1,435 @@
+{
+  "version": 1,
+  "source": "demo",
+  "description": "虚构演示，不是真实 MCP 订单。",
+  "orders": [
+    {
+      "id": "demo-r1",
+      "items": [
+        {
+          "id": "plate",
+          "name": "板烧鸡腿堡",
+          "kind": "burger",
+          "quantity": 1
+        },
+        {
+          "id": "fries",
+          "name": "中薯条",
+          "kind": "fries",
+          "quantity": 1
+        },
+        {
+          "id": "cola",
+          "name": "无糖可乐",
+          "kind": "drink",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "demo-r2",
+      "items": [
+        {
+          "id": "plate",
+          "name": "板烧鸡腿堡",
+          "kind": "burger",
+          "quantity": 1
+        },
+        {
+          "id": "fries",
+          "name": "中薯条",
+          "kind": "fries",
+          "quantity": 1
+        },
+        {
+          "id": "cola",
+          "name": "无糖可乐",
+          "kind": "drink",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "demo-r3",
+      "items": [
+        {
+          "id": "plate",
+          "name": "板烧鸡腿堡",
+          "kind": "burger",
+          "quantity": 1
+        },
+        {
+          "id": "fries",
+          "name": "中薯条",
+          "kind": "fries",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "demo-r4",
+      "items": [
+        {
+          "id": "plate",
+          "name": "板烧鸡腿堡",
+          "kind": "burger",
+          "quantity": 1
+        },
+        {
+          "id": "cola",
+          "name": "无糖可乐",
+          "kind": "drink",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "demo-r5",
+      "items": [
+        {
+          "id": "plate",
+          "name": "板烧鸡腿堡",
+          "kind": "burger",
+          "quantity": 1
+        },
+        {
+          "id": "fries",
+          "name": "中薯条",
+          "kind": "fries",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "repeat",
+      "label": "固定阵容",
+      "orders": [
+        {
+          "id": "demo-r1",
+          "items": [
+            {
+              "id": "plate",
+              "name": "板烧鸡腿堡",
+              "kind": "burger",
+              "quantity": 1
+            },
+            {
+              "id": "fries",
+              "name": "中薯条",
+              "kind": "fries",
+              "quantity": 1
+            },
+            {
+              "id": "cola",
+              "name": "无糖可乐",
+              "kind": "drink",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-r2",
+          "items": [
+            {
+              "id": "plate",
+              "name": "板烧鸡腿堡",
+              "kind": "burger",
+              "quantity": 1
+            },
+            {
+              "id": "fries",
+              "name": "中薯条",
+              "kind": "fries",
+              "quantity": 1
+            },
+            {
+              "id": "cola",
+              "name": "无糖可乐",
+              "kind": "drink",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-r3",
+          "items": [
+            {
+              "id": "plate",
+              "name": "板烧鸡腿堡",
+              "kind": "burger",
+              "quantity": 1
+            },
+            {
+              "id": "fries",
+              "name": "中薯条",
+              "kind": "fries",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-r4",
+          "items": [
+            {
+              "id": "plate",
+              "name": "板烧鸡腿堡",
+              "kind": "burger",
+              "quantity": 1
+            },
+            {
+              "id": "cola",
+              "name": "无糖可乐",
+              "kind": "drink",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-r5",
+          "items": [
+            {
+              "id": "plate",
+              "name": "板烧鸡腿堡",
+              "kind": "burger",
+              "quantity": 1
+            },
+            {
+              "id": "fries",
+              "name": "中薯条",
+              "kind": "fries",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drink-leading",
+      "label": "饮料 C 位",
+      "orders": [
+        {
+          "id": "demo-d1",
+          "items": [
+            {
+              "id": "coffee",
+              "name": "美式咖啡",
+              "kind": "drink",
+              "quantity": 1
+            },
+            {
+              "id": "bigmac",
+              "name": "巨无霸",
+              "kind": "burger",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-d2",
+          "items": [
+            {
+              "id": "coffee",
+              "name": "美式咖啡",
+              "kind": "drink",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-d3",
+          "items": [
+            {
+              "id": "coffee",
+              "name": "美式咖啡",
+              "kind": "drink",
+              "quantity": 1
+            },
+            {
+              "id": "fries",
+              "name": "中薯条",
+              "kind": "fries",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-d4",
+          "items": [
+            {
+              "id": "coffee",
+              "name": "美式咖啡",
+              "kind": "drink",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-d5",
+          "items": [
+            {
+              "id": "coffee",
+              "name": "美式咖啡",
+              "kind": "drink",
+              "quantity": 1
+            },
+            {
+              "id": "bigmac",
+              "name": "巨无霸",
+              "kind": "burger",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-d6",
+          "items": [
+            {
+              "id": "coffee",
+              "name": "美式咖啡",
+              "kind": "drink",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "variety",
+      "label": "客串大会",
+      "orders": [
+        {
+          "id": "demo-v1",
+          "items": [
+            {
+              "id": "plate",
+              "name": "板烧鸡腿堡",
+              "kind": "burger",
+              "quantity": 1
+            },
+            {
+              "id": "fries",
+              "name": "中薯条",
+              "kind": "fries",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-v2",
+          "items": [
+            {
+              "id": "bigmac",
+              "name": "巨无霸",
+              "kind": "burger",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-v3",
+          "items": [
+            {
+              "id": "fish",
+              "name": "麦香鱼",
+              "kind": "burger",
+              "quantity": 1
+            },
+            {
+              "id": "fries",
+              "name": "中薯条",
+              "kind": "fries",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-v4",
+          "items": [
+            {
+              "id": "chicken-burger",
+              "name": "麦辣鸡腿汉堡",
+              "kind": "burger",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duo",
+      "label": "双人搭配",
+      "orders": [
+        {
+          "id": "demo-p1",
+          "items": [
+            {
+              "id": "plate",
+              "name": "板烧鸡腿堡",
+              "kind": "burger",
+              "quantity": 1
+            },
+            {
+              "id": "fries",
+              "name": "中薯条",
+              "kind": "fries",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-p2",
+          "items": [
+            {
+              "id": "plate",
+              "name": "板烧鸡腿堡",
+              "kind": "burger",
+              "quantity": 1
+            },
+            {
+              "id": "fries",
+              "name": "中薯条",
+              "kind": "fries",
+              "quantity": 1
+            },
+            {
+              "id": "cola",
+              "name": "无糖可乐",
+              "kind": "drink",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-p3",
+          "items": [
+            {
+              "id": "plate",
+              "name": "板烧鸡腿堡",
+              "kind": "burger",
+              "quantity": 1
+            },
+            {
+              "id": "fries",
+              "name": "中薯条",
+              "kind": "fries",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": "demo-p4",
+          "items": [
+            {
+              "id": "ice-cream",
+              "name": "香草甜筒",
+              "kind": "dessert",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

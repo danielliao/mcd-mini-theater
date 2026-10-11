@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFF8E8">
+  <meta name="description" content="让你常点的汉堡、薯条和饮料开个群。生成属于你的麦麦小剧场，下载分享。">
+  <title>麦麦小剧场 · 给你的订单，也开个群</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%23FFD35B%27/%3E%3Ctext x=%278%27 y=%2748%27 font-size=%2750%27 font-family=%27Georgia%27 font-weight=%27bold%27 fill=%27%23CE4133%27%3Em%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="麦麦小剧场首页"><span class="brand-mark" aria-hidden="true">m<span>✦</span></span><span>麦麦小剧场<small>MCD MINI THEATER</small></span></a>
+    <span class="header-note"><span class="status-dot"></span>开源 Skill · 非官方创意作品</span>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-eyebrow"><span>你今天吃的，可能有点话想说</span><i aria-hidden="true">✦</i></div>
+      <h1>你的麦当劳，<br>背着你<span class="headline-highlight">开了个群<svg viewBox="0 0 300 18" aria-hidden="true"><path d="M3 12Q142-5 294 10"/></svg></span><span class="title-spark" aria-hidden="true">✳</span></h1>
+      <p class="hero-description">汉堡是群主，薯条爱吐槽。<br class="mobile-break">给你的订单，也开个群。</p>
+    </section>
+    <section class="workspace" aria-label="生成你的分享卡">
+      <aside class="controls">
+        <div class="control-heading"><span class="step-number">01</span><h2>今天，谁在群里？</h2></div>
+        <div class="mode-switch" role="tablist" aria-label="选择体验方式">
+          <button id="demo-tab" role="tab" aria-selected="true" aria-controls="demo-panel" data-mode="demo">先玩一段</button>
+          <button id="self-tab" role="tab" aria-selected="false" aria-controls="self-panel" data-mode="self">自选餐品</button>
+          <button id="import-tab" role="tab" aria-selected="false" aria-controls="import-panel" data-mode="import">导入文件</button>
+          <button id="connect-tab" role="tab" aria-selected="false" aria-controls="connect-panel" data-mode="connect">连接麦当劳</button>
+        </div>
+        <div id="demo-panel" class="mode-panel" role="tabpanel" aria-labelledby="demo-tab">
+          <p class="panel-helper">选一个日常，看看食物们怎么聊。</p>
+          <div id="scenario-list" class="scenario-list"></div>
+        </div>
+        <div id="self-panel" class="mode-panel" role="tabpanel" aria-labelledby="self-tab" hidden>
+          <p class="panel-helper">选 2–3 位常点的老朋友。<br>这里是自选体验，不会读取你的订单。</p>
+          <div id="food-list" class="food-list"></div>
+          <button id="self-generate" class="button button-dark full">给它们开个群 <span aria-hidden="true">↗</span></button>
+        </div>
+        <div id="import-panel" class="mode-panel" role="tabpanel" aria-labelledby="import-tab" hidden>
+          <div class="own-orders-intro"><span class="intro-icon" aria-hidden="true">↗</span><h3>把真实的日常，<br>变成专属的段子。</h3><p>用麦麦小剧场 Skill 获取并脱敏订单，再导入文件。也支持导入 Skill 已生成的故事。</p></div>
+          <button id="upload-button" class="button button-dark full">导入订单 / 故事 JSON <span aria-hidden="true">↑</span></button>
+          <button id="import-help-button" class="text-button full">怎么从自己的订单生成？ <span aria-hidden="true">→</span></button>
+          <p class="privacy-note"><span aria-hidden="true">◈</span>文件只在当前浏览器处理。<br>请移除姓名、电话、地址和账号信息。</p>
+          <div id="import-status" class="import-status" hidden></div>
+        </div>
+        <div id="connect-panel" class="mode-panel" role="tabpanel" aria-labelledby="connect-tab" hidden>
+          <div class="own-orders-intro"><span class="intro-icon" aria-hidden="true">↗</span><h3>你的午饭，<br>现在入群。</h3><p>填入麦当劳 MCP Token，读取近期已完成订单，生成属于你的故事。</p></div>
+          <form id="connect-form" autocomplete="off">
+            <label class="token-label" for="token-input">麦当劳 MCP Token</label>
+            <input id="token-input" type="password" autocomplete="off" spellcheck="false" autocapitalize="none" placeholder="粘贴 Token，仅本次读取使用" required>
+            <button id="collect-button" class="button button-dark full" type="submit">读取我的订单 <span aria-hidden="true">↗</span></button>
+          </form>
+          <p id="connect-help" class="privacy-note connect-help">Token 仅发送给这台电脑上的服务，用于本次官方 MCP 读取。提交后即清空，不会保存。</p>
+          <div id="connect-status" class="import-status" role="status" aria-live="polite" hidden></div>
+        </div>
+        <input id="file-input" type="file" accept="application/json,.json" hidden>
+        <div class="current-story">
+          <div class="summary-heading"><span>本段剧场</span><span id="source-label" class="source-pill">虚构演示</span></div>
+          <p id="story-summary"></p>
+          <div id="evidence-list" class="evidence-list"></div>
+        </div>
+        <button id="reroll" class="button button-reroll full"><span aria-hidden="true">↻</span> 换一段台词<span class="button-note">人物不变</span></button>
+        <p id="reroll-hint" class="tiny-note">笑点可以重来，餐品事实保持不变。</p>
+        <div class="control-bottom"><span class="mini-star" aria-hidden="true">✦</span><p>先被说中，再发给朋友。<br><strong>下一群，就是他们的午饭。</strong></p></div>
+      </aside>
+      <div class="preview-column">
+        <div class="preview-toolbar"><div><span class="step-number">02</span><h2>你的分享卡</h2><span class="preview-subtitle">长图 · 一键带走</span></div><span id="preview-source" class="source-pill">虚构演示</span></div>
+        <div class="poster-stage">
+          <div class="stage-sticker" aria-hidden="true">他们聊起来了<br><span>↙</span></div>
+          <article id="poster" class="poster" aria-label="麦麦小剧场分享卡">
+            <div class="poster-top"><span class="poster-logo">麦麦小剧场<span>●</span></span><span id="poster-source" class="poster-source">虚构演示</span></div>
+            <div class="poster-title-area"><h2 id="poster-title">我的麦当劳<br>背着我开了个群</h2><span class="poster-spark" aria-hidden="true">✳</span></div>
+            <div class="group-strip"><div id="member-stack" class="member-stack"></div><div><p id="group-name"></p><span id="member-count"></span></div><span class="group-dots" aria-hidden="true">···</span></div>
+            <div id="message-list" class="message-list"></div>
+            <p id="system-message" class="system-message"></p>
+            <div class="poster-evidence"><span id="poster-sample"></span><p id="poster-evidence-text"></p></div>
+            <div class="poster-footer"><div><strong>给你的订单，也开个群。</strong><span>麦麦小剧场 · 开源 Skill</span></div><span class="footer-arrow" aria-hidden="true">↗</span></div>
+            <p id="poster-disclaimer" class="poster-disclaimer">虚构演示 · 食物群聊为娱乐创作</p>
+          </article>
+        </div>
+        <div class="share-actions"><button id="download" class="button button-red"><span aria-hidden="true">↓</span> 下载分享图</button><button id="copy" class="button button-outline"><span aria-hidden="true">⧉</span> 复制分享文案</button></div>
+        <p class="share-helper">不购买也能玩。保存图片，发到你真正的群里。</p>
+        <div id="status" class="status-message" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+    <section class="how-it-works" aria-label="作品说明"><div class="how-title"><span aria-hidden="true">✦</span><h2>常点的那几位，<br>最懂你的日常。</h2></div><div class="how-item"><span>1</span><h3>餐品来演</h3><p>每一位群成员，都来自选定餐品。</p></div><div class="how-item"><span>2</span><h3>事实打底</h3><p>频次由记录计算，台词是娱乐创作。</p></div><div class="how-item"><span>3</span><h3>分享接力</h3><p>发给朋友，看看他们的午饭怎么聊。</p></div></section>
+  </main>
+  <footer class="site-footer"><p>麦麦小剧场 · 非官方参赛创意作品</p><p>与食物开个玩笑，对人保持善意。</p></footer>
+  <dialog id="help-dialog" class="help-dialog"><div class="dialog-top"><span class="eyebrow">用自己的订单</span><button id="close-dialog" class="close-button" aria-label="关闭说明">×</button></div><h2>在 AI 助手里开群，<br>在这里把图带走。</h2><ol><li>安装作品包中的 <strong>麦麦小剧场 Skill</strong>，连接官方麦当劳 MCP。</li><li>在助手中说：“用我的近期订单生成麦麦小剧场，导出脱敏故事 JSON。”</li><li>把生成的文件导入这里，检查台词，再下载分享图。</li></ol><p class="dialog-note">导入模式在你的 AI 助手中完成账号授权。也可在“连接麦当劳”中填写 Token，限本机服务进行本次读取。此作品不会创建订单或发消息。</p><button id="dialog-upload" class="button button-red full">已有文件，立即导入 ↑</button></dialog>
+  <script type="module" src="./app.mjs"></script>
+</body>
+</html>

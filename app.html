@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFF8E8">
+  <meta name="description" content="让你常点的汉堡、薯条和饮料开个群。生成属于你的麦麦小剧场，下载分享。">
+  <title>麦麦小剧场 · 给你的订单，也开个群</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%23FFD35B%27/%3E%3Ctext x=%278%27 y=%2748%27 font-size=%2750%27 font-family=%27Georgia%27 font-weight=%27bold%27 fill=%27%23CE4133%27%3Em%3C/text%3E%3C/svg%3E">
+  <style>@charset "UTF-8";
+:root{--cream:#fff8e8;--paper:#fffdf6;--ink:#312822;--muted:#817363;--red:#ce4133;--yellow:#ffd35b;--line:#e8dfcc;--green:#6a7c55;--font:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color-scheme:light}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.6}button,input{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible{outline:3px solid #907439;outline-offset:4px}button{border:0}button,input{accent-color:var(--red)}[hidden]{display:none!important}.site-header{max-width:1320px;margin:auto;padding:30px 48px 20px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;font-size:18px;font-weight:800;line-height:1.3;letter-spacing:.5px}.brand small{display:block;font-size:9px;letter-spacing:1.8px;font-weight:600;margin-top:4px}.brand-mark{display:block;position:relative;width:42px;height:45px;color:var(--red);font-size:50px;font-weight:900;font-family:Georgia,serif;line-height:.7;letter-spacing:-5px}.brand-mark>span{position:absolute;font-family:var(--font);font-size:17px;line-height:1;letter-spacing:0;right:-3px;top:-4px}.header-note{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted)}.status-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}main{max-width:1240px;margin:auto;padding:0 40px}.hero{position:relative;padding:47px 0 48px;text-align:center}.hero-eyebrow{display:flex;align-items:center;justify-content:center;gap:11px;color:var(--red);font-weight:600;letter-spacing:2px;font-size:12px}.hero-eyebrow>i{font-size:17px;font-style:normal}.hero h1{position:relative;margin:19px auto 21px;font-size:clamp(38px,4.5vw,64px);line-height:1.25;letter-spacing:-2px;font-weight:850}.headline-highlight{position:relative;white-space:nowrap}.headline-highlight>svg{position:absolute;width:100%;height:15px;bottom:-7px;left:0;fill:none;stroke:var(--red);stroke-width:5;stroke-linecap:round}.title-spark{position:absolute;color:var(--red);font-weight:400;font-size:55px;margin-left:30px;transform:rotate(-12deg);top:55px}.hero-description{margin:0;color:var(--muted);font-size:15px;letter-spacing:.5px}.mobile-break{display:none}.workspace{display:grid;grid-template-columns:340px minmax(0,1fr);gap:34px;align-items:start;padding-bottom:30px}.controls{padding:25px;background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:0 6px 0 #e8dfcc40}.control-heading{display:flex;align-items:center;gap:10px;margin-bottom:21px}.step-number{display:inline-flex;align-items:center;justify-content:center;color:var(--red);background:#f9e6d9;font-size:11px;font-weight:750;border-radius:50%;width:25px;height:25px}.control-heading>h2,.preview-toolbar h2{font-size:16px;margin:0;font-weight:750}.mode-switch{display:grid;grid-template-columns:repeat(4,1fr);padding:4px;background:#f3ecdd;border-radius:11px;gap:2px;margin-bottom:22px}.mode-switch>button{border-radius:8px;padding:9px 3px;white-space:nowrap;font-size:10px;background:transparent;color:var(--muted);font-weight:650;transition:background .2s,color .2s,box-shadow .2s}.mode-switch>button[aria-selected=true]{background:var(--ink);color:var(--paper);box-shadow:0 2px 4px #31282214}.panel-helper{font-size:12px;color:var(--muted);margin:0 0 14px}.scenario-list{display:grid;grid-template-columns:1fr 1fr;gap:9px}.scenario-button{position:relative;border:1px solid var(--line);background:var(--paper);text-align:left;padding:13px 11px;border-radius:13px;min-height:123px;transition:background .2s,border-color .2s}.scenario-button[aria-pressed=true]{background:#fff0be;border-color:#d5ad50}.scenario-button[aria-pressed=true]:after{content:'✓';position:absolute;right:9px;top:8px;width:17px;height:17px;display:grid;place-content:center;background:var(--ink);color:var(--yellow);font-size:10px;border-radius:50%}.scenario-icon{display:block;width:44px;height:44px;margin-bottom:4px}.scenario-icon>svg{width:100%;height:100%}.scenario-button strong{display:block;font-size:12px;margin-bottom:1px}.scenario-button small{display:block;font-size:10px;color:var(--muted);white-space:nowrap}.food-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}.food-option{display:flex;align-items:center;gap:5px;text-align:left;min-height:55px;border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:6px;font-size:10px}.food-option .food-avatar{height:35px;width:35px;flex-shrink:0}.food-option.selected{background:#fff0be;border-color:#d5ad50}.food-option.selected:after{content:'✓';color:var(--red);margin-left:auto;font-size:10px}.button{display:inline-flex;justify-content:center;align-items:center;gap:9px;min-height:48px;padding:13px 20px;font-size:13px;line-height:1.5;font-weight:700;border-radius:11px;transition:transform .15s,box-shadow .15s,background .2s}.button:hover{transform:translateY(-1px)}.button:active{transform:translateY(1px)}.full{width:100%}.button-dark{color:var(--cream);background:var(--ink)}.button-dark>span{font-size:20px}.button-red{background:var(--red);color:var(--paper);box-shadow:0 4px 0 #973227}.button-red>span,.button-outline>span{font-size:21px;line-height:1}.button-outline{background:var(--paper);border:1px solid #d7cbb7;color:var(--ink);box-shadow:0 3px 0 #e9dfce}.current-story{margin-top:22px;padding-top:19px;border-top:1px dashed var(--line)}.summary-heading{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:600}.source-pill{display:inline-flex;align-items:center;gap:5px;background:#f8ede0;border:1px solid #ede0ca;color:#897045;padding:3px 8px;white-space:nowrap;font-size:9px;font-weight:650;letter-spacing:.5px;border-radius:5px}.source-pill:before{content:'';width:4px;height:4px;border-radius:50%;background:currentColor}#story-summary{font-size:12px;line-height:1.6;margin:10px 0}.evidence-list{display:flex;flex-wrap:wrap;gap:5px}.evidence-chip{font-size:10px;color:var(--muted);background:#f5f0e5;border-radius:4px;padding:3px 6px;line-height:1.45}.button-reroll{margin-top:20px;background:#f8efd9;color:var(--ink);border:1px solid #e5d8b8;justify-content:flex-start;padding:11px 14px}.button-reroll>span:first-child{font-size:24px;color:var(--red);line-height:1}.button-note{margin-left:auto;font-size:10px;color:#9c8b67;font-weight:500}.tiny-note{font-size:10px;color:#a28f73;text-align:center;margin:8px 0 0}.control-bottom{display:flex;align-items:center;gap:12px;margin-top:23px;padding-top:20px;border-top:1px solid var(--line)}.mini-star{font-size:32px;color:var(--red)}.control-bottom p{font-size:11px;color:var(--muted);margin:0}.control-bottom strong{font-weight:600;color:var(--ink)}.preview-toolbar{display:flex;align-items:center;justify-content:space-between;margin:2px 0 14px;padding:0 3px}.preview-toolbar>div{display:flex;align-items:center;gap:9px}.preview-subtitle{font-size:10px;color:var(--muted);margin-left:3px}.poster-stage{position:relative;border:1px solid #f0c55e;border-radius:23px;background:var(--yellow);padding:30px 50px 34px;overflow:hidden;background-image:radial-gradient(#f0bd4525 1.4px,transparent 1.4px);background-size:15px 15px}.stage-sticker{position:absolute;z-index:1;right:13px;top:13px;font-size:11px;line-height:1.3;transform:rotate(10deg);font-weight:650;letter-spacing:.5px}.stage-sticker>span{font-size:24px;display:block;text-align:center;font-weight:400}.poster{position:relative;margin:auto;padding:25px 27px 18px;background:var(--paper);width:100%;max-width:488px;border-radius:8px;box-shadow:0 7px 0 #d3a333,0 15px 30px #7d621328;border:1px solid #fff}.poster-top{display:flex;justify-content:space-between;align-items:center}.poster-logo{font-size:13px;font-weight:800;letter-spacing:1px;color:var(--red)}.poster-logo>span{font-size:7px;margin-left:5px}.poster-source{font-size:9px;color:#9c8c76;border:1px solid #e5dac7;line-height:1;padding:5px 6px;border-radius:3px}.poster-title-area{position:relative}.poster-title-area>h2{font-size:34px;font-weight:850;line-height:1.23;letter-spacing:-1.4px;white-space:pre-line;margin:19px 0 24px;max-width:350px}.poster-spark{position:absolute;color:var(--red);font-size:42px;right:0;top:19px;transform:rotate(-13deg)}.group-strip{display:flex;align-items:center;gap:10px;border:1px solid #e5d9c4;border-radius:11px;background:#f8f0df;padding:10px 11px;margin-bottom:15px}.member-stack{display:flex;padding-left:0}.member-avatar{width:30px;height:30px;background:#fffcf0;border:2px solid #f8f0df;border-radius:50%;margin-left:-9px;overflow:hidden}.member-avatar:first-child{margin-left:0}.member-avatar>svg{width:100%;height:100%}.group-strip p{margin:0;font-size:12px;font-weight:700;line-height:1.3}.group-strip>div>span{font-size:9px;color:var(--muted);line-height:1.3;display:block;margin-top:3px}.group-dots{font-size:22px;line-height:1;margin-left:auto;letter-spacing:1px}.message-list{display:flex;flex-direction:column;gap:13px}.chat-row{display:flex;align-items:flex-start;gap:9px}.chat-avatar{width:41px;height:41px;flex-shrink:0;border-radius:11px;background:#f5ecd9;border:1px solid #ece0cc;display:grid;place-items:center;margin-top:15px}.chat-avatar>svg{width:39px;height:39px}.chat-content{max-width:calc(100% - 50px)}.speaker-name{display:block;font-size:9px;color:#90816a;margin-bottom:3px;line-height:1.2}.chat-bubble{position:relative;padding:10px 12px;background:#f3eddf;border:1px solid #e7dec9;border-radius:3px 11px 11px 11px;font-size:12px;line-height:1.65;letter-spacing:.1px;overflow-wrap:anywhere}.chat-row:nth-child(3n+1) .chat-bubble{background:#fff0c3;border-color:#ecd5a1}.system-message{text-align:center;font-size:9px;line-height:1.5;color:#a38e69;margin:18px 6px 23px;overflow-wrap:anywhere}.system-message:before{content:'↳ ';color:#c4ac7d}.poster-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px dashed #d9cdb8}.poster-footer strong{display:block;font-size:13px;letter-spacing:.3px;line-height:1.4}.poster-footer>div>span{display:block;font-size:8px;color:#9c8a6b;margin-top:4px;letter-spacing:1px}.footer-arrow{display:flex;align-items:center;justify-content:center;color:var(--paper);background:var(--red);width:34px;height:34px;font-size:26px;line-height:1;font-weight:500;border-radius:50%}.poster-disclaimer{font-size:7px;color:#ab9b85;text-align:center;margin:17px 0 0;line-height:1.4}.share-actions{display:flex;align-items:center;justify-content:center;gap:11px;margin-top:21px}.share-actions .button{min-width:170px}.share-helper{text-align:center;color:var(--muted);font-size:11px;margin:14px 0 0}.status-message{min-height:24px;text-align:center;font-size:12px;color:var(--green);padding-top:5px}.status-message.error{color:var(--red)}.how-it-works{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:30px;margin:37px 0 33px;border-top:1px solid var(--line);padding-top:32px}.how-title{display:flex;gap:16px;align-items:center}.how-title>span{color:var(--red);font-size:38px}.how-title>h2{font-size:19px;line-height:1.45;letter-spacing:-.5px;margin:0}.how-item>span{display:inline-grid;place-content:center;border:1px solid #cfbd9d;width:20px;height:20px;border-radius:50%;font-size:10px;margin-right:6px}.how-item>h3{display:inline;font-size:12px;font-weight:700}.how-item>p{color:var(--muted);font-size:10px;margin:6px 0 0}.site-footer{max-width:1160px;margin:0 auto;padding:24px 0 30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#a18f75;font-size:10px}.site-footer p{margin:0}.own-orders-intro{background:#fff1c5;padding:15px;border-radius:12px;margin-bottom:15px}.intro-icon{display:block;color:var(--red);font-size:28px;line-height:1}.own-orders-intro h3{font-size:19px;line-height:1.35;margin:8px 0}.own-orders-intro p{font-size:11px;color:#8e7751;margin:0;line-height:1.75}.text-button{color:#8c7857;background:transparent;padding:13px 0;font-size:11px;text-align:center}.privacy-note{font-size:10px;text-align:center;line-height:1.7;color:var(--muted);margin:0}.privacy-note>span{margin-right:4px;color:var(--green)}.import-status{background:#f2f4e9;border:1px solid #dbe2c9;color:#6a7550;font-size:11px;line-height:1.5;padding:10px;margin-top:12px;border-radius:8px;overflow-wrap:anywhere}.import-status.error{color:var(--red);background:#fff0e9;border-color:#f0d0c0}.help-dialog{position:fixed;padding:29px;max-width:470px;width:calc(100% - 32px);border:1px solid #dfd2b8;border-radius:20px;background:var(--paper);color:var(--ink);box-shadow:0 20px 80px #31282240}.help-dialog::backdrop{background:#31282270;backdrop-filter:blur(3px)}.dialog-top{display:flex;justify-content:space-between;align-items:center}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--red);font-weight:700}.close-button{font-size:26px;line-height:1;background:#f6efdf;border-radius:50%;width:30px;height:30px;color:var(--muted)}.help-dialog h2{font-size:27px;line-height:1.3;letter-spacing:-.7px;margin:18px 0 24px}.help-dialog ol{padding-left:21px;font-size:12px;line-height:1.8}.help-dialog li{padding-left:5px;margin-bottom:13px}.help-dialog li::marker{color:var(--red);font-weight:700}.dialog-note{color:var(--muted);background:#f3edde;border-radius:9px;padding:13px;font-size:10px;line-height:1.7;margin:18px 0 20px}
+@media(min-width:1350px){.hero{padding-top:55px}.poster-stage{padding-left:67px;padding-right:67px}}
+@media(max-width:1050px){main{padding:0 28px}.workspace{grid-template-columns:310px minmax(0,1fr);gap:23px}.controls{padding:21px}.poster-stage{padding:28px 26px 32px}.poster{padding:22px 22px 16px}.poster-title-area>h2{font-size:29px}.poster-spark{font-size:36px}.stage-sticker{font-size:9px;right:7px}.how-it-works{gap:20px}.preview-subtitle{display:none}.site-footer{margin:0 28px}.site-header{padding-left:28px;padding-right:28px}}
+@media(max-width:899px){.workspace{grid-template-columns:1fr;gap:25px;max-width:640px;margin:auto}.controls{padding:22px}.hero{padding:33px 0 32px}.hero h1{font-size:45px}.title-spark{font-size:39px;top:41px;margin-left:15px}.scenario-list{grid-template-columns:repeat(4,1fr)}.scenario-button{min-height:108px}.scenario-icon{width:36px;height:36px}.current-story{margin-top:18px}.control-bottom{display:none}.poster-stage{padding:31px 58px 36px}.poster{max-width:450px;padding:27px 27px 19px}.poster-title-area>h2{font-size:35px}.poster-spark{font-size:44px}.chat-bubble{font-size:13px}.poster-logo{font-size:14px}.poster-source{font-size:10px}.message-list{gap:15px}.poster-footer strong{font-size:14px}.poster-footer>div>span{font-size:9px}.food-list{grid-template-columns:repeat(4,1fr)}.food-option{flex-direction:column;gap:3px;padding:8px 5px;position:relative}.food-option.selected:after{position:absolute;right:5px;top:5px}.food-option .food-avatar{width:38px;height:38px}.own-orders-intro{padding:19px}.own-orders-intro h3 br{display:none}.privacy-note br{display:none}.how-it-works{grid-template-columns:repeat(3,1fr);max-width:640px;margin:28px auto}.how-title{grid-column:1/-1}.how-title>h2 br{display:none}.how-item>p{font-size:11px}.site-header{padding-top:23px}.header-note{font-size:10px}.brand{font-size:16px}.brand-mark{font-size:42px;width:36px;height:35px}.site-footer{font-size:9px}.stage-sticker{top:15px;right:16px;font-size:11px}}
+@media(max-width:520px){main{padding:0 16px}.site-header{padding:21px 17px 14px}.brand{font-size:14px;gap:9px}.brand small{font-size:7px;letter-spacing:1.3px}.brand-mark{width:30px;font-size:37px;letter-spacing:-4px;height:28px}.brand-mark>span{font-size:12px;right:-2px}.header-note{font-size:8px;gap:5px;max-width:105px;text-align:right;line-height:1.6}.hero{padding:23px 0 30px}.hero-eyebrow{font-size:9px;letter-spacing:1.2px;gap:7px}.hero h1{font-size:35px;letter-spacing:-1.6px;margin:13px 0 21px}.title-spark{font-size:27px;top:31px;margin-left:8px}.headline-highlight>svg{height:10px;bottom:-5px;stroke-width:4}.hero-description{font-size:12px;line-height:1.9}.mobile-break{display:block}.controls{padding:19px;border-radius:17px}.control-heading{margin-bottom:16px}.mode-switch{margin-bottom:16px}.scenario-list{grid-template-columns:1fr 1fr;gap:8px}.scenario-button{min-height:91px;padding:12px 12px}.scenario-icon{float:left;width:39px;height:39px;margin:7px 7px 0 0}.scenario-button strong{font-size:11px;margin-top:8px}.scenario-button small{font-size:9px}.scenario-button[aria-pressed=true]:after{right:6px;top:6px;width:13px;height:13px;font-size:8px}.current-story{padding-top:15px}.evidence-chip{font-size:9px}.button-reroll{margin-top:15px;min-height:44px}.panel-helper{font-size:11px;margin-bottom:12px}.preview-toolbar{margin-bottom:11px}.preview-toolbar h2{font-size:15px}.poster-stage{padding:25px 18px 29px;border-radius:17px}.poster{max-width:390px;padding:22px 20px 17px;border-radius:7px}.stage-sticker{display:none}.poster-logo{font-size:12px}.poster-source{font-size:8px;padding:4px 5px}.poster-title-area>h2{font-size:29px;margin:18px 0 22px;letter-spacing:-1.3px;max-width:265px}.poster-spark{font-size:32px;right:-1px;top:23px}.group-strip{padding:9px;border-radius:9px;gap:9px;margin-bottom:15px}.member-avatar{width:27px;height:27px;margin-left:-8px}.group-strip p{font-size:11px}.group-strip>div>span{font-size:8px}.chat-avatar{width:34px;height:34px;border-radius:9px;margin-top:15px}.chat-avatar>svg{width:33px;height:33px}.chat-row{gap:8px}.chat-content{max-width:calc(100% - 42px)}.chat-bubble{font-size:11px;padding:9px 10px;line-height:1.65}.speaker-name{font-size:8px}.message-list{gap:13px}.system-message{font-size:8px;margin:17px 3px 20px}.poster-footer{padding-top:14px}.poster-footer strong{font-size:12px;letter-spacing:0}.poster-footer>div>span{font-size:7px}.footer-arrow{width:31px;height:31px;font-size:24px}.poster-disclaimer{font-size:6px;margin-top:15px}.share-actions{gap:9px;margin-top:19px}.share-actions .button{min-width:0;flex:1;padding:12px 8px;font-size:12px;min-height:46px}.share-helper{font-size:10px;margin-top:13px}.how-it-works{gap:12px;margin:24px auto}.how-title{gap:12px}.how-title>h2{font-size:17px}.how-item h3{font-size:11px}.how-item p{font-size:9px;line-height:1.8}.site-footer{margin:0 16px;display:block;padding:18px 0 25px;line-height:1.8}.site-footer p{display:inline;margin-right:10px}.food-list{grid-template-columns:repeat(3,1fr)}.own-orders-intro h3{font-size:20px}.own-orders-intro p{font-size:11px}.privacy-note{font-size:9px}.privacy-note br{display:block}.help-dialog{padding:23px}.help-dialog h2{font-size:24px}.help-dialog li{font-size:11px}.source-pill{font-size:8px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+.token-label{display:block;font-size:11px;font-weight:650;color:var(--muted);margin:0 0 7px}#token-input{width:100%;height:46px;border:1px solid #d9ccb3;border-radius:10px;background:var(--paper);padding:11px 12px;color:var(--ink);font-size:11px;outline-offset:3px;margin-bottom:12px}#token-input::placeholder{color:#ad9a7d;font-size:10px}.connect-help{margin-top:13px;text-align:left;font-size:10px;line-height:1.7}#connect-status{font-size:10px}
+
+.poster-evidence{background:#f8f3e8;border:1px solid #e9dfcc;border-radius:7px;padding:9px 11px;margin:0 0 17px}.poster-evidence>span{display:block;font-size:8px;color:#a08b65;font-weight:650;line-height:1.5}.poster-evidence>p{font-size:9px;color:#8d7d63;margin:3px 0 0;line-height:1.55;overflow-wrap:anywhere}@media(max-width:520px){.poster-evidence{padding:8px 9px;margin-bottom:15px}.poster-evidence>span{font-size:7px}.poster-evidence>p{font-size:8px}.chat-bubble{font-size:12px}.speaker-name{font-size:9px}}
+
+.group-strip>div:last-of-type{min-width:0}.group-strip p,.speaker-name{overflow-wrap:anywhere}.group-dots{flex-shrink:0}.evidence-chip{max-width:100%;overflow-wrap:anywhere}.mode-switch>button{font-size:10.5px}
+
+@media(max-width:520px){.header-note{max-width:none;white-space:nowrap;font-size:7.5px}}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="麦麦小剧场首页"><span class="brand-mark" aria-hidden="true">m<span>✦</span></span><span>麦麦小剧场<small>MCD MINI THEATER</small></span></a>
+    <span class="header-note"><span class="status-dot"></span>开源 Skill · 非官方创意作品</span>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-eyebrow"><span>你今天吃的，可能有点话想说</span><i aria-hidden="true">✦</i></div>
+      <h1>你的麦当劳，<br>背着你<span class="headline-highlight">开了个群<svg viewBox="0 0 300 18" aria-hidden="true"><path d="M3 12Q142-5 294 10"/></svg></span><span class="title-spark" aria-hidden="true">✳</span></h1>
+      <p class="hero-description">汉堡是群主，薯条爱吐槽。<br class="mobile-break">给你的订单，也开个群。</p>
+    </section>
+    <section class="workspace" aria-label="生成你的分享卡">
+      <aside class="controls">
+        <div class="control-heading"><span class="step-number">01</span><h2>今天，谁在群里？</h2></div>
+        <div class="mode-switch" role="tablist" aria-label="选择体验方式">
+          <button id="demo-tab" role="tab" aria-selected="true" aria-controls="demo-panel" data-mode="demo">先玩一段</button>
+          <button id="self-tab" role="tab" aria-selected="false" aria-controls="self-panel" data-mode="self">自选餐品</button>
+          <button id="import-tab" role="tab" aria-selected="false" aria-controls="import-panel" data-mode="import">导入文件</button>
+          <button id="connect-tab" role="tab" aria-selected="false" aria-controls="connect-panel" data-mode="connect">连接麦当劳</button>
+        </div>
+        <div id="demo-panel" class="mode-panel" role="tabpanel" aria-labelledby="demo-tab">
+          <p class="panel-helper">选一个日常，看看食物们怎么聊。</p>
+          <div id="scenario-list" class="scenario-list"></div>
+        </div>
+        <div id="self-panel" class="mode-panel" role="tabpanel" aria-labelledby="self-tab" hidden>
+          <p class="panel-helper">选 2–3 位常点的老朋友。<br>这里是自选体验，不会读取你的订单。</p>
+          <div id="food-list" class="food-list"></div>
+          <button id="self-generate" class="button button-dark full">给它们开个群 <span aria-hidden="true">↗</span></button>
+        </div>
+        <div id="import-panel" class="mode-panel" role="tabpanel" aria-labelledby="import-tab" hidden>
+          <div class="own-orders-intro"><span class="intro-icon" aria-hidden="true">↗</span><h3>把真实的日常，<br>变成专属的段子。</h3><p>用麦麦小剧场 Skill 获取并脱敏订单，再导入文件。也支持导入 Skill 已生成的故事。</p></div>
+          <button id="upload-button" class="button button-dark full">导入订单 / 故事 JSON <span aria-hidden="true">↑</span></button>
+          <button id="import-help-button" class="text-button full">怎么从自己的订单生成？ <span aria-hidden="true">→</span></button>
+          <p class="privacy-note"><span aria-hidden="true">◈</span>文件只在当前浏览器处理。<br>请移除姓名、电话、地址和账号信息。</p>
+          <div id="import-status" class="import-status" hidden></div>
+        </div>
+        <div id="connect-panel" class="mode-panel" role="tabpanel" aria-labelledby="connect-tab" hidden>
+          <div class="own-orders-intro"><span class="intro-icon" aria-hidden="true">↗</span><h3>你的午饭，<br>现在入群。</h3><p>填入麦当劳 MCP Token，读取近期已完成订单，生成属于你的故事。</p></div>
+          <form id="connect-form" autocomplete="off">
+            <label class="token-label" for="token-input">麦当劳 MCP Token</label>
+            <input id="token-input" type="password" autocomplete="off" spellcheck="false" autocapitalize="none" placeholder="粘贴 Token，仅本次读取使用" required>
+            <button id="collect-button" class="button button-dark full" type="submit">读取我的订单 <span aria-hidden="true">↗</span></button>
+          </form>
+          <p id="connect-help" class="privacy-note connect-help">Token 仅发送给这台电脑上的服务，用于本次官方 MCP 读取。提交后即清空，不会保存。</p>
+          <div id="connect-status" class="import-status" role="status" aria-live="polite" hidden></div>
+        </div>
+        <input id="file-input" type="file" accept="application/json,.json" hidden>
+        <div class="current-story">
+          <div class="summary-heading"><span>本段剧场</span><span id="source-label" class="source-pill">虚构演示</span></div>
+          <p id="story-summary"></p>
+          <div id="evidence-list" class="evidence-list"></div>
+        </div>
+        <button id="reroll" class="button button-reroll full"><span aria-hidden="true">↻</span> 换一段台词<span class="button-note">人物不变</span></button>
+        <p id="reroll-hint" class="tiny-note">笑点可以重来，餐品事实保持不变。</p>
+        <div class="control-bottom"><span class="mini-star" aria-hidden="true">✦</span><p>先被说中，再发给朋友。<br><strong>下一群，就是他们的午饭。</strong></p></div>
+      </aside>
+      <div class="preview-column">
+        <div class="preview-toolbar"><div><span class="step-number">02</span><h2>你的分享卡</h2><span class="preview-subtitle">长图 · 一键带走</span></div><span id="preview-source" class="source-pill">虚构演示</span></div>
+        <div class="poster-stage">
+          <div class="stage-sticker" aria-hidden="true">他们聊起来了<br><span>↙</span></div>
+          <article id="poster" class="poster" aria-label="麦麦小剧场分享卡">
+            <div class="poster-top"><span class="poster-logo">麦麦小剧场<span>●</span></span><span id="poster-source" class="poster-source">虚构演示</span></div>
+            <div class="poster-title-area"><h2 id="poster-title">我的麦当劳<br>背着我开了个群</h2><span class="poster-spark" aria-hidden="true">✳</span></div>
+            <div class="group-strip"><div id="member-stack" class="member-stack"></div><div><p id="group-name"></p><span id="member-count"></span></div><span class="group-dots" aria-hidden="true">···</span></div>
+            <div id="message-list" class="message-list"></div>
+            <p id="system-message" class="system-message"></p>
+            <div class="poster-evidence"><span id="poster-sample"></span><p id="poster-evidence-text"></p></div>
+            <div class="poster-footer"><div><strong>给你的订单，也开个群。</strong><span>麦麦小剧场 · 开源 Skill</span></div><span class="footer-arrow" aria-hidden="true">↗</span></div>
+            <p id="poster-disclaimer" class="poster-disclaimer">虚构演示 · 食物群聊为娱乐创作</p>
+          </article>
+        </div>
+        <div class="share-actions"><button id="download" class="button button-red"><span aria-hidden="true">↓</span> 下载分享图</button><button id="copy" class="button button-outline"><span aria-hidden="true">⧉</span> 复制分享文案</button></div>
+        <p class="share-helper">不购买也能玩。保存图片，发到你真正的群里。</p>
+        <div id="status" class="status-message" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+    <section class="how-it-works" aria-label="作品说明"><div class="how-title"><span aria-hidden="true">✦</span><h2>常点的那几位，<br>最懂你的日常。</h2></div><div class="how-item"><span>1</span><h3>餐品来演</h3><p>每一位群成员，都来自选定餐品。</p></div><div class="how-item"><span>2</span><h3>事实打底</h3><p>频次由记录计算，台词是娱乐创作。</p></div><div class="how-item"><span>3</span><h3>分享接力</h3><p>发给朋友，看看他们的午饭怎么聊。</p></div></section>
+  </main>
+  <footer class="site-footer"><p>麦麦小剧场 · 非官方参赛创意作品</p><p>与食物开个玩笑，对人保持善意。</p></footer>
+  <dialog id="help-dialog" class="help-dialog"><div class="dialog-top"><span class="eyebrow">用自己的订单</span><button id="close-dialog" class="close-button" aria-label="关闭说明">×</button></div><h2>在 AI 助手里开群，<br>在这里把图带走。</h2><ol><li>安装作品包中的 <strong>麦麦小剧场 Skill</strong>，连接官方麦当劳 MCP。</li><li>在助手中说：“用我的近期订单生成麦麦小剧场，导出脱敏故事 JSON。”</li><li>把生成的文件导入这里，检查台词，再下载分享图。</li></ol><p class="dialog-note">导入模式在你的 AI 助手中完成账号授权。也可在“连接麦当劳”中填写 Token，限本机服务进行本次读取。此作品不会创建订单或发消息。</p><button id="dialog-upload" class="button button-red full">已有文件，立即导入 ↑</button></dialog>
+  <script type="module">const __theaterCore = (() => {
+/** Deterministic, local storytelling from an already redacted order format. */
+const KINDS = new Set(['burger', 'fries', 'drink', 'chicken', 'dessert', 'other']);
+const SOURCES = new Set(['demo', 'mcp', 'imported', 'self']);
+const MAX_ORDERS = 10;
+
+function fail(code, message, Type = Error) {
+  const error = new Type(message);
+  error.code = code;
+  throw error;
+}
+
+/** Mask recognizable private strings; does not reinterpret ordinary menu numbers. */
+function redactText(value) {
+  const hidden = '[已隐藏]';
+  return String(value ?? '')
+    .replace(/\bBearer\s+[A-Za-z0-9._~+\/=-]+/gi, hidden)
+    .replace(/\bhttps?:\/\/[^\s<>"']+/gi, hidden)
+    .replace(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi, hidden)
+    .replace(/(?<!\d)(?:\+?86[\s-]?)?1[3-9]\d(?:[\s-]?\d){8}(?!\d)/g, hidden)
+    .replace(/\beyJ[A-Za-z0-9_-]{8,}\.[A-Za-z0-9_-]{8,}\.[A-Za-z0-9_-]{8,}\b/g, hidden)
+    .replace(/\b(?:sk-[A-Za-z0-9_-]{8,}|gh[pousr]_[A-Za-z0-9]{10,}|github_pat_[A-Za-z0-9_]{10,}|MCD_(?:SECRET_)?TOKEN_[A-Za-z0-9_-]+)\b/gi, hidden)
+    .replace(/\b(?:api[_-]?key|access[_-]?token|mcd[_-]?mcp[_-]?token|authorization|password|secret|token)\s*[:=]\s*["']?[A-Za-z0-9._~+\/=-]{8,}["']?/gi, hidden)
+    .replace(/\b[A-Za-z0-9_-]{32,}\b/g, token => /[A-Za-z]/.test(token) && /\d/.test(token) ? hidden : token);
+}
+
+function cleanName(value) {
+  if (typeof value !== 'string') return '';
+  return redactText(value.normalize('NFC')).replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 80);
+}
+
+function labelFor(source, count) {
+  if (source === 'self') return '自选餐品体验｜未读取订单';
+  if (source === 'demo') return `虚构演示｜${count} 笔虚构订单`;
+  if (source === 'imported') return '导入订单｜来源由文件提供者声明';
+  return `近期 ${count} 笔已完成订单｜最多 10 笔`;
+}
+
+function rankFoods(a, b) {
+  return b.orderCount - a.orderCount || b.quantity - a.quantity || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
+}
+
+function appearance(food, count) {
+  return `这 ${count} 笔订单中，「${food.name}」出现在 ${food.orderCount} 笔；同单多份只算一次出现。`;
+}
+
+/** Input order is newest first; completion status is checked by the caller. */
+function analyzeOrders(orders, { source = 'demo' } = {}) {
+  if (!SOURCES.has(source) || source === 'self') fail('INVALID_SOURCE', '订单分析的来源只能是 demo、mcp 或 imported。', TypeError);
+  if (!Array.isArray(orders)) fail('INVALID_ORDERS', '订单必须是数组。', TypeError);
+  if (!orders.length) fail('NO_ORDERS', '没有可分析的订单。请连接真实订单或明确选择虚构演示。', RangeError);
+
+  const selected = orders.slice(0, MAX_ORDERS);
+  const totals = new Map();
+  const appearances = [];
+  let invalidItems = 0;
+
+  for (const order of selected) {
+    if (!order || !Array.isArray(order.items)) fail('INVALID_ORDERS', '每笔标准订单都必须包含 items 数组。', TypeError);
+    const seen = new Set();
+    for (const item of order.items) {
+      const name = cleanName(item?.name);
+      const quantity = item?.quantity;
+      if (!name || !Number.isSafeInteger(quantity) || quantity <= 0) {
+        invalidItems += 1;
+        continue;
+      }
+      const kind = KINDS.has(item.kind) ? item.kind : 'other';
+      // Source IDs are used internally for identity, never copied into results.
+      const identity = typeof item.id === 'string' || typeof item.id === 'number'
+        ? `id:${String(item.id)}` : `name:${kind}:${name}`;
+      if (!totals.has(identity)) totals.set(identity, { name, kind, orderCount: 0, quantity: 0, identity });
+      const food = totals.get(identity);
+      food.quantity += quantity;
+      if (!seen.has(identity)) food.orderCount += 1;
+      seen.add(identity);
+    }
+    appearances.push(seen);
+  }
+
+  if (!totals.size) fail('NO_FOODS', '这些订单里没有有效餐品，无法生成小剧场。', RangeError);
+  const ranked = [...totals.values()].sort(rankFoods);
+  const foods = ranked.map((food, index) => ({
+    id: `food-${index + 1}`, name: food.name, kind: food.kind,
+    orderCount: food.orderCount, quantity: food.quantity,
+  }));
+  const identityById = new Map(foods.map((food, index) => [food.id, ranked[index].identity]));
+  const count = selected.length;
+  const signals = [];
+
+  const drink = foods.find(food => food.kind === 'drink');
+  const rival = foods.find(food => food.kind !== 'drink');
+  if (drink && rival && drink.orderCount >= 2 && drink.orderCount > rival.orderCount) {
+    signals.push({
+      id: 'drink-leading', foodIds: [drink.id, rival.id],
+      evidence: [appearance(drink, count), appearance(rival, count), '本样本中，这款饮料的出现笔数高于每一款非饮料餐品。'],
+    });
+  }
+
+  const mains = foods.filter(food => food.kind === 'burger' || food.kind === 'chicken');
+  const guestMains = mains.length >= 3 && mains.every(food => food.orderCount <= count / 2)
+    ? mains.slice(0, 3) : [];
+  const oneOffs = foods.filter(food => food.orderCount === 1);
+  const guests = guestMains.length ? guestMains : count >= 2 && oneOffs.length >= 3 ? oneOffs.slice(0, 3) : [];
+  if (guests.length) {
+    signals.push({
+      id: 'variety', foodIds: guests.map(food => food.id),
+      evidence: guests.map(food => appearance(food, count)),
+    });
+  }
+
+  // A duo is a pair of foods, never an inference about the number of diners.
+  const anchor = foods[0];
+  const partner = foods.slice(1).find(food => {
+    if (anchor.orderCount < 2 || food.orderCount !== anchor.orderCount) return false;
+    const a = identityById.get(anchor.id);
+    const b = identityById.get(food.id);
+    return appearances.filter(seen => seen.has(a) && seen.has(b)).length === anchor.orderCount;
+  });
+  if (partner) {
+    signals.push({
+      id: 'duo', foodIds: [anchor.id, partner.id],
+      evidence: [`这 ${count} 笔订单中，「${anchor.name}」与「${partner.name}」在 ${anchor.orderCount} 笔中同单出现；本样本中没有单独出现。`],
+    });
+  }
+
+  const regulars = foods.filter(food => food.orderCount >= 2 && food.orderCount / count >= 0.6).slice(0, 3);
+  if (regulars.length) {
+    signals.push({ id: 'repeat', foodIds: regulars.map(food => food.id), evidence: regulars.map(food => appearance(food, count)) });
+  }
+  if (!signals.length) {
+    const cast = foods.slice(0, 3);
+    signals.push({ id: 'snapshot', foodIds: cast.map(food => food.id), evidence: cast.map(food => appearance(food, count)) });
+  }
+
+  const warnings = [];
+  if (orders.length > MAX_ORDERS) warnings.push('输入超过 10 笔，只分析按最新在前排列的前 10 笔。');
+  if (invalidItems) warnings.push(`有 ${invalidItems} 项餐品因名称或数量格式无效而未计入，订单样本分母保持不变。`);
+
+  return {
+    version: 1, source, sample: { orderCount: count, scopeLabel: labelFor(source, count) },
+    foods, signals, warnings,
+  };
+}
+
+function variantIndex(variant) {
+  const number = Number.isFinite(Number(variant)) ? Math.trunc(Number(variant)) : 0;
+  return ((number % 3) + 3) % 3;
+}
+
+function makeMessages(cast, texts) {
+  return texts.map(([index, text]) => ({ speakerId: cast[index]?.id ?? cast[0].id, text }));
+}
+
+function createStory(facts, variant = 0) {
+  if (!facts || facts.version !== 1 || !SOURCES.has(facts.source) || !Array.isArray(facts.foods) || !facts.foods.length || !Array.isArray(facts.signals) || !facts.signals.length) {
+    fail('INVALID_FACTS', '缺少有效事实，无法生成小剧场。', TypeError);
+  }
+  if (facts.source !== 'self' && (!Number.isInteger(facts.sample?.orderCount) || facts.sample.orderCount < 1 || facts.sample.orderCount > MAX_ORDERS)) {
+    fail('INVALID_FACTS', '订单样本数必须在 1 到 10 之间。', TypeError);
+  }
+  const signal = facts.signals[0];
+  const rawCast = signal.foodIds?.slice(0, 3).map(id => facts.foods.find(food => food.id === id));
+  if (!rawCast?.length || rawCast.some(food => !food)) fail('INVALID_FACTS', '故事中的餐品没有对应事实。', TypeError);
+  const cast = rawCast.map(food => ({ ...food, id: redactText(food.id), name: cleanName(food.name), kind: KINDS.has(food.kind) ? food.kind : 'other' }));
+  const [a, b, c] = cast;
+  const n = facts.sample?.orderCount ?? 0;
+  const v = variantIndex(variant);
+  let title, groupName, systemMessage, options;
+
+  switch (signal.id) {
+    case 'drink-leading':
+      title = '饮料说：我才是这桌的主角';
+      groupName = '配角升职通知群';
+      systemMessage = `系统已将「${a.name}」设为群主。`;
+      options = [
+        [[0, '先说清楚，我只是个随餐饮料。'], [1, `这 ${n} 笔你来了 ${a.orderCount} 笔，我只来了 ${b.orderCount} 笔。`], [0, '这个“随”字，是不是放反了？']],
+        [[1, '谁来主持今天的群聊？'], [0, `我先点名。这 ${n} 笔里，我有 ${a.orderCount} 笔在场。`], [1, '明白了，我才是被顺便带上的。']],
+        [[0, '大家一直把我当配角。'], [1, `你的出场记录是 ${a.orderCount}/${n}，我的只有 ${b.orderCount}/${n}。`], [0, '群头像要不要重新排一下？']],
+      ];
+      break;
+    case 'variety':
+      title = '餐品正在核对出场名单';
+      groupName = '客串演员集合处';
+      systemMessage = '系统已建立「客串演员集合处」。';
+      options = [
+        [[0, `这 ${n} 笔名单里，我占 ${a.orderCount} 笔。`], [1, `我也来了 ${b.orderCount} 笔。`], [2, '那先别把群名写成某一位的粉丝群。']],
+        [[0, '今天谁坐群头像的中间？'], [1, '出场名单里也有我的名字。'], [2, '做拼图吧，别只裁一个人。']],
+        [[0, '我以为这群只邀请了我。'], [1, `我是「${b.name}」，我也有出场记录。`], [2, '名单不长，演员挺丰富。']],
+      ];
+      break;
+    case 'duo':
+      title = '它们说：我们总是一起出场';
+      groupName = '固定搭档工作群';
+      systemMessage = '群名已修改为「固定搭档工作群」。';
+      options = [
+        [[0, '我发现，这份样本里每次我在，你也在。'], [1, `核对过了，我们一起出现在 ${a.orderCount} 笔里。`], [0, '怪不得群头像一直裁不下我们俩。']],
+        [[0, '谁又把我们排在同一张出场表？'], [1, `这 ${n} 笔里，有 ${a.orderCount} 笔我们一起在。`], [0, '那群昵称给你留半个位置。']],
+        [[1, '这份样本里，好像没有我的单人镜头。'], [0, '因为有你出场的订单里，也都有我。'], [1, '懂了，群头像用合照。']],
+      ];
+      break;
+    case 'repeat': {
+      title = '它们的群聊，有固定座位';
+      groupName = '固定阵容群';
+      systemMessage = '群名已修改为「固定阵容群」。';
+      const other = b ? 1 : 0;
+      options = [
+        [[0, '群名怎么还叫“临时搭伙群”？'], [other, `这 ${n} 笔里你有 ${a.orderCount} 笔在，已经是固定阵容了。`], [0, '那我申请把“临时”两个字撤掉。']],
+        [[0, '我在这份出场名单里，有点眼熟。'], [other, `眼熟？你都出现在 ${a.orderCount} 笔里了。`], [0, '那我把椅子搬进群头像吧。']],
+        [[0, '谁把我的座位焊住了？'], [other, `你的 ${a.orderCount}/${n} 出场记录，自己提交的。`], [0, '不是置顶消息，是置顶演员。']],
+      ];
+      if (c) options = options.map(messages => [...messages.slice(0, 2), [2, `我也在这 ${n} 笔里出现了 ${c.orderCount} 笔。`], ...messages.slice(2)]);
+      break;
+    }
+    case 'self': {
+      title = '你选的餐品，刚刚开了个群';
+      groupName = '自选演员试镜群';
+      systemMessage = '这是自选餐品体验，未读取历史订单。';
+      options = cast.length === 1 ? [
+        [[0, '这个群头像，我想拍成特写。'], [0, '左边是我，右边还是我。'], [0, '好了，单人海报也是海报。']],
+        [[0, '群名先空着，我先选头像。'], [0, '这张用正脸，下一张用侧脸。'], [0, '一个演员，也能忙得很。']],
+        [[0, '今天我负责开场。'], [0, '也负责接自己的话。'], [0, '这个群先拍一张单人照。']],
+      ] : cast.length === 2 ? [
+        [[0, '先说好，群头像留我半张脸。'], [1, '我已经伸进去了，不好意思。'], [0, '好，封面摄影师省事了。']],
+        [[0, '我已经把名字写进群公告。'], [1, '公告先放放，我还没选好头像。'], [0, '群聊才开门，我们已经开会了。']],
+        [[0, '谁把群头像裁得这么近？'], [1, '先别裁，我得露个角。'], [0, '我们这是群聊，还是合照摄影棚？']],
+      ] : [
+        [[0, '先说好，群头像留我半张脸。'], [1, '我已经伸进去了，不好意思。'], [2, '谁把群聊变成全家福了？']],
+        [[0, '我已经把名字写进群公告。'], [1, '公告先放放，我还没选好头像。'], [2, '群聊才开门，你俩已经开会了。']],
+        [[0, '谁把群头像裁得这么近？'], [1, '先别裁，我得露个角。'], [2, '我们这是群聊，还是合照摄影棚？']],
+      ];
+      break;
+    }
+    case 'snapshot': {
+      title = '餐品正在确认这份出场名单';
+      groupName = '样本出场名单群';
+      systemMessage = '样本有限，只讲这份名单里能核对的事实。';
+      const other = b ? 1 : 0;
+      options = [
+        [[0, `这 ${n} 笔样本中，有 ${a.orderCount} 笔点了我。`], [other, '先核对名单，再演戏。'], [0, '这就是我们的开场白。']],
+        [[0, '演员名单拿到了。'], [other, '每个名字都能在这份样本里找到。'], [0, '群头像可以开拍了。']],
+        [[0, '群里谁负责讲事实？'], [other, '下方证据卡负责。'], [0, '那我们负责群聊气氛。']],
+      ];
+      break;
+    }
+    default:
+      fail('INVALID_FACTS', '不支持这个事实锚点。', TypeError);
+  }
+
+  const disclaimer = facts.source === 'demo'
+    ? '这是虚构演示，未读取真实订单。食品拟人台词为创作，不代表实际聊天。'
+    : facts.source === 'self'
+      ? '餐品由你自选；未读取订单，也未推断购买次数。食品拟人台词为虚构创作。'
+      : facts.source === 'imported'
+        ? '统计仅依据导入文件，来源由提供者声明，未独立核验为 MCP 取数。食品拟人台词为虚构创作。'
+        : '食品拟人台词为虚构创作；事实依据仅限标注的近期样本，不代表全年习惯或个人特征。';
+  return {
+    version: 1, source: facts.source, themeId: signal.id, title, groupName,
+    members: cast.map(food => ({ id: food.id, name: food.name, kind: food.kind })),
+    messages: makeMessages(cast, options[v]).map(message => ({ ...message, text: redactText(message.text) })), systemMessage: redactText(systemMessage),
+    evidence: signal.evidence.map(redactText), caption: '我的餐品，背着我开了个群。你的会聊什么？',
+    sampleLabel: labelFor(facts.source, n), disclaimer,
+  };
+}
+
+function createSelfStory(names, variant = 0) {
+  if (!Array.isArray(names)) fail('INVALID_SELF_FOODS', '请提供自选餐品名称数组。', TypeError);
+  const selected = [];
+  const seen = new Set();
+  for (const input of names) {
+    const name = cleanName(typeof input === 'string' ? input : input?.name);
+    if (!name || seen.has(name)) continue;
+    seen.add(name);
+    selected.push({ id: `food-${selected.length + 1}`, name, kind: KINDS.has(input?.kind) ? input.kind : 'other', orderCount: 0, quantity: 0 });
+    if (selected.length === 3) break;
+  }
+  if (!selected.length) fail('NO_SELF_FOODS', '至少选择一款餐品，才能生成自选体验。', RangeError);
+  return createStory({
+    version: 1, source: 'self', sample: { orderCount: 0, scopeLabel: labelFor('self', 0) },
+    foods: selected, warnings: [], signals: [{
+      id: 'self', foodIds: selected.map(food => food.id),
+      evidence: [`本次自选的餐品是${selected.map(food => `「${food.name}」`).join('、')}；未读取历史订单。`],
+    }],
+  }, variant);
+}
+
+const item = (id, name, kind, quantity = 1) => ({ id, name, kind, quantity });
+const order = (id, items) => ({ id, items });
+const plate = () => item('plate', '板烧鸡腿堡', 'burger');
+const fries = () => item('fries', '中薯条', 'fries');
+const cola = () => item('cola', '无糖可乐', 'drink');
+const coffee = () => item('coffee', '美式咖啡', 'drink');
+const bigMac = () => item('bigmac', '巨无霸', 'burger');
+
+const demoScenarios = [
+  {
+    id: 'repeat', label: '固定阵容', orders: [
+      order('demo-r1', [plate(), fries(), cola()]),
+      order('demo-r2', [plate(), fries(), cola()]),
+      order('demo-r3', [plate(), fries()]),
+      order('demo-r4', [plate(), cola()]),
+      order('demo-r5', [plate(), fries()]),
+    ],
+  },
+  {
+    id: 'drink-leading', label: '饮料 C 位', orders: [
+      order('demo-d1', [coffee(), bigMac()]),
+      order('demo-d2', [coffee()]),
+      order('demo-d3', [coffee(), fries()]),
+      order('demo-d4', [coffee()]),
+      order('demo-d5', [coffee(), bigMac()]),
+      order('demo-d6', [coffee()]),
+    ],
+  },
+  {
+    id: 'variety', label: '客串大会', orders: [
+      order('demo-v1', [plate(), fries()]),
+      order('demo-v2', [bigMac()]),
+      order('demo-v3', [item('fish', '麦香鱼', 'burger'), fries()]),
+      order('demo-v4', [item('chicken-burger', '麦辣鸡腿汉堡', 'burger')]),
+    ],
+  },
+  {
+    id: 'duo', label: '双人搭配', orders: [
+      order('demo-p1', [plate(), fries()]),
+      order('demo-p2', [plate(), fries(), cola()]),
+      order('demo-p3', [plate(), fries()]),
+      order('demo-p4', [item('ice-cream', '香草甜筒', 'dessert')]),
+    ],
+  },
+];
+
+const demoOrders = demoScenarios[0].orders;
+
+return {redactText,analyzeOrders,createStory,createSelfStory,demoScenarios,demoOrders};
+})();
+const __theaterCharacters = (() => {
+const palette = { ink: '#312822', yellow: '#FFD35B', red: '#D94232', cream: '#FFF8E8' };
+const face = '<ellipse cx="40" cy="43" rx="2.3" ry="3.5" fill="#312822"/><ellipse cx="59" cy="43" rx="2.3" ry="3.5" fill="#312822"/><path d="M44 54q6 6 12-1" fill="none" stroke="#312822" stroke-width="2.8" stroke-linecap="round"/><ellipse cx="33" cy="50" rx="5" ry="2.6" fill="#ED9874" opacity=".8"/><ellipse cx="65" cy="50" rx="5" ry="2.6" fill="#ED9874" opacity=".8"/>';
+const art = {
+  burger: '<path d="M17 39C19 12 80 12 83 39Z" fill="#EFB256" stroke="#312822" stroke-width="2.2"/><path d="M18 40h64v13H18z" fill="#97AC50"/><path d="M16 49q16 8 33 0t35 1v12H16Z" fill="#844C30"/><path d="M19 61h62v6q0 12-13 12H32Q19 79 19 67Z" fill="#E8A34A" stroke="#312822" stroke-width="2.2"/><path d="m27 30 3-2m14-7 2 3m12-2 3 1m9 6 3 2" stroke="#FFF0C9" stroke-width="3" stroke-linecap="round"/>',
+  fries: '<g fill="#FFD35B" stroke="#B5893A" stroke-width="1.5"><path d="m23 50-3-32 10-2 3 36Z"/><path d="M34 51V9h10v44Z"/><path d="m47 52 1-40h10l-1 42Z"/><path d="m60 54 6-37 10 2-6 38Z"/></g><path d="M17 39q33 13 67 0l-7 38q-27 11-53 0Z" fill="#D94232" stroke="#312822" stroke-width="2.2"/>',
+  drink: '<path d="m29 19 47-5-9 66H36Z" fill="#CE4636" stroke="#312822" stroke-width="2.2"/><path d="M27 16q27-5 51-2v10H27Z" fill="#FFF3D3" stroke="#312822" stroke-width="2.2"/><path d="m53 16 3-12h15" fill="none" stroke="#312822" stroke-width="4" stroke-linecap="round"/><path d="M37 64h28" stroke="#ED8B73" stroke-width="3"/>',
+  chicken: '<path d="M20 45q-4-19 16-23t25 14q22-4 22 16T65 76q-15 9-26-3-19 7-24-8t5-20Z" fill="#DB9850" stroke="#312822" stroke-width="2.2"/><g fill="#BE7C38"><circle cx="29" cy="39" r="2"/><circle cx="65" cy="61" r="2"/><circle cx="34" cy="68" r="2"/><circle cx="71" cy="47" r="2"/><circle cx="50" cy="29" r="2"/></g>',
+  dessert: '<path d="m27 47 46-1-22 38Z" fill="#D6A664" stroke="#312822" stroke-width="2.2"/><path d="m34 53 24 20m8-20L43 72" stroke="#B98045" stroke-width="2"/><path d="M24 44q-2-12 11-15-3-10 8-14-1-9 9-10 9 8 9 17 12 5 9 15 11 2 7 12Z" fill="#FFF4D4" stroke="#312822" stroke-width="2.2"/>',
+  other: '<path d="M19 29q30-12 62 0v39q-31 15-62 0Z" fill="#FFD35B" stroke="#312822" stroke-width="2.2"/><path d="M19 29q31 14 62 0M50 36v41" fill="none" stroke="#B5893A" stroke-width="2.2"/>'
+};
+const kinds = Object.freeze(Object.keys(art));
+function avatarSvg(kind = 'other') {
+  const food = Object.hasOwn(art, kind) ? art[kind] : art.other;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47" fill="${palette.cream}"/>${food}${face}<path d="m13 55-5 5m78-7 6 4" stroke="#312822" stroke-width="2.5" stroke-linecap="round"/></svg>`;
+}
+const images = new Map();
+async function drawAvatar(ctx, kind, x, y, size) {
+  const safeKind = kinds.includes(kind) ? kind : 'other';
+  if (!images.has(safeKind)) {
+    images.set(safeKind, new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = reject;
+      img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(avatarSvg(safeKind))}`;
+    }));
+  }
+  const img = await images.get(safeKind);
+  ctx.drawImage(img, x, y, size, size);
+}
+
+return {kinds,avatarSvg,drawAvatar};
+})();
+const { analyzeOrders, createStory, createSelfStory, demoScenarios, redactText } = __theaterCore;
+const { avatarSvg, drawAvatar, kinds } = __theaterCharacters;
+
+const $ = id => document.getElementById(id);
+const fontStack = '-apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif';
+const foods = [
+  { name: '板烧鸡腿堡', kind: 'burger' }, { name: '巨无霸', kind: 'burger' },
+  { name: '中薯条', kind: 'fries' }, { name: '无糖可乐', kind: 'drink' },
+  { name: '美式咖啡', kind: 'drink' }, { name: '麦乐鸡', kind: 'chicken' },
+  { name: '香草甜筒', kind: 'dessert' }, { name: '麦香鱼', kind: 'burger' },
+];
+const scenarioDetails = {
+  repeat: ['burger', '老朋友，又见面'], 'drink-leading': ['drink', '谁才是真正的主角'],
+  variety: ['chicken', '今天的演员有点多'], duo: ['fries', '固定搭档，一起出场'],
+};
+const selectedFoods = new Set(['板烧鸡腿堡', '中薯条', '无糖可乐']);
+let mode = 'demo';
+let activeScenario = demoScenarios[0].id;
+let facts = null;
+let story = null;
+let provenance = 'demo';
+let variant = 0;
+let importedKind = null;
+let embeddedDemo = false;
+let activeSelfFoods = [];
+let exporting = false;
+let collecting = false;
+const localService = /^https?:$/.test(location.protocol) && ['localhost', '127.0.0.1'].includes(location.hostname);
+
+function element(tag, className, content) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (content !== undefined) node.textContent = content;
+  return node;
+}
+function foodAvatar(kind, className) {
+  const node = element('span', className);
+  // Only fixed SVG artwork from this module is inserted. File content never enters innerHTML.
+  node.innerHTML = avatarSvg(kind);
+  return node;
+}
+function announce(message, isError = false) {
+  $('status').textContent = message;
+  $('status').classList.toggle('error', isError);
+}
+function sourceText(short = false) {
+  if (provenance === 'demo') return '虚构演示';
+  if (provenance === 'self') return '自选体验';
+  if (provenance === 'mcp') return '近期实际订单';
+  return short ? '导入内容' : '导入内容 · 来源由提供者声明';
+}
+function render() {
+  $('source-label').textContent = sourceText(true);
+  $('preview-source').textContent = sourceText(true);
+  $('poster-source').textContent = sourceText(true);
+  $('story-summary').textContent = story.title;
+  $('poster-title').textContent = '我的麦当劳\n背着我开了个群';
+  $('group-name').textContent = story.groupName;
+  $('member-count').textContent = `${story.members.length} 位群成员 · ${sourceText(true)}`;
+  const stack = $('member-stack');
+  stack.replaceChildren(...story.members.map(member => foodAvatar(member.kind, 'member-avatar')));
+  const cast = new Map(story.members.map(member => [member.id, member]));
+  const messages = story.messages.map(message => {
+    const member = cast.get(message.speakerId);
+    const row = element('div', 'chat-row');
+    const content = element('div', 'chat-content');
+    content.append(element('span', 'speaker-name', member.name), element('div', 'chat-bubble', message.text));
+    row.append(foodAvatar(member.kind, 'chat-avatar'), content);
+    return row;
+  });
+  $('message-list').replaceChildren(...messages);
+  $('system-message').textContent = story.systemMessage;
+  $('poster-disclaimer').textContent = provenance === 'imported'
+    ? '导入内容 · 来源由提供者声明 · 食物群聊为娱乐创作'
+    : provenance === 'demo'
+      ? '虚构演示 · 未读取真实订单 · 食物群聊为娱乐创作'
+      : provenance === 'mcp'
+        ? '来自近期已完成订单 · 食物群聊为娱乐创作'
+        : '自选体验 · 未读取订单 · 食物群聊为娱乐创作';
+  $('poster-sample').textContent = story.sampleLabel;
+  $('poster-evidence-text').textContent = story.evidence[0] ?? '未提供可核对的餐品依据。';
+  const evidence = story.evidence.slice(0, 4).map(text => element('span', 'evidence-chip', text));
+  $('evidence-list').replaceChildren(...evidence);
+  $('reroll').disabled = importedKind === 'story' || exporting;
+  $('reroll-hint').textContent = importedKind === 'story'
+    ? embeddedDemo ? '内置演示已加载。点击“先玩一段”可切换场景与台词。' : '已保留导入故事的台词。可在助手中改稿后再次导入。'
+    : '笑点可以重来，餐品事实保持不变。';
+  for (const button of document.querySelectorAll('.scenario-button')) {
+    button.setAttribute('aria-pressed', String(provenance === 'demo' && button.dataset.scenario === activeScenario));
+  }
+}
+function switchMode(next) {
+  mode = next;
+  for (const key of ['demo', 'self', 'import', 'connect']) {
+    $(`${key}-panel`).hidden = key !== next;
+    $(`${key}-tab`).setAttribute('aria-selected', String(key === next));
+  }
+  announce('');
+}
+function showDemo(id) {
+  embeddedDemo = false;
+  const scenario = demoScenarios.find(item => item.id === id) || demoScenarios[0];
+  activeScenario = scenario.id;
+  provenance = 'demo';
+  importedKind = null;
+  variant = 0;
+  facts = analyzeOrders(scenario.orders, { source: 'demo' });
+  story = createStory(facts, variant);
+  render();
+}
+function showSelf() {
+  embeddedDemo = false;
+  const choices = foods.filter(food => selectedFoods.has(food.name));
+  if (choices.length < 2 || choices.length > 3) return announce('请先选 2–3 位群成员。', true);
+  provenance = 'self';
+  importedKind = null;
+  variant = 0;
+  facts = null;
+  activeSelfFoods = choices.map(food => ({ ...food }));
+  story = createSelfStory(activeSelfFoods, variant);
+  render();
+  announce('他们入群了。换一段台词，看看下一句。');
+}
+function safeText(input, label, max = 160, empty = false) {
+  if (typeof input !== 'string' || input.length > max || (!empty && !input.trim())) throw new Error(`${label}的格式或长度不正确。`);
+  return redactText(input.replace(/[\u0000-\u0008\u000b-\u001f\u007f]/g, '').trim());
+}
+export function validateImportedStory(data) {
+  if (!data || typeof data !== 'object' || data.version !== 1) throw new Error('请导入麦麦小剧场 version 1 故事文件。');
+  if (!Array.isArray(data.members) || data.members.length < 1 || data.members.length > 6) throw new Error('故事应包含 1–6 位群成员。');
+  const seen = new Map();
+  const members = data.members.map((member, index) => {
+    safeText(member?.id, '群成员 ID', 80);
+    const rawId = member.id;
+    if (seen.has(rawId)) throw new Error('群成员 ID 重复。');
+    const id = `member-${index + 1}`;
+    seen.set(rawId, id);
+    return { id, name: safeText(member?.name, '餐品名称', 80), kind: kinds.includes(member?.kind) ? member.kind : 'other' };
+  });
+  if (!Array.isArray(data.messages) || data.messages.length < 1 || data.messages.length > 12) throw new Error('故事应包含 1–12 条台词。');
+  const messages = data.messages.map(message => {
+    safeText(message?.speakerId, '发言成员', 80);
+    if (!seen.has(message.speakerId)) throw new Error('某条台词的发言者不在群成员名单中。');
+    return { speakerId: seen.get(message.speakerId), text: safeText(message?.text, '台词', 180) };
+  });
+  if (!Array.isArray(data.evidence) || data.evidence.length > 10) throw new Error('故事证据卡的格式不正确。');
+  return {
+    version: 1, source: 'imported', themeId: typeof data.themeId === 'string' ? data.themeId.slice(0, 80) : 'imported',
+    title: safeText(data.title, '标题', 80), groupName: safeText(data.groupName, '群名', 80),
+    members, messages, systemMessage: safeText(data.systemMessage ?? '', '系统消息', 180, true),
+    evidence: data.evidence.map(text => safeText(text, '证据卡', 240)),
+    caption: safeText(data.caption ?? '我的麦当劳，背着我开了个群。你的会聊什么？', '分享文案', 1000),
+    sampleLabel: `提供者标注：${safeText(data.sampleLabel ?? '未提供样本范围', '样本范围', 160)}`, disclaimer: '导入内容的餐品与台词由文件提供者声明；食品拟人台词为娱乐创作。',
+  };
+}
+function sanitizeOrders(data) {
+  const orders = Array.isArray(data) ? data : data?.orders;
+  if (!Array.isArray(orders) || orders.length < 1 || orders.length > 100) throw new Error('订单文件应包含 1–100 笔订单数组；只分析最新在前的前 10 笔。');
+  return orders.map((order, index) => {
+    if (!Array.isArray(order?.items) || order.items.length < 1 || order.items.length > 60) throw new Error(`第 ${index + 1} 笔订单缺少有效餐品列表。`);
+    return {
+      id: `imported-order-${index + 1}`,
+      items: order.items.map(item => {
+        const name = safeText(item?.name, '餐品名称', 80);
+        if (!Number.isSafeInteger(item?.quantity) || item.quantity < 1 || item.quantity > 100) throw new Error(`「${name}」的数量必须是 1–100 的整数。`);
+        // IDs are deliberately converted to local opaque identifiers; no personal fields are retained.
+        return { id: typeof item.id === 'number' || typeof item.id === 'string' ? `item-${String(item.id).slice(0, 100)}` : `name-${name}`, name, kind: kinds.includes(item.kind) ? item.kind : 'other', quantity: item.quantity };
+      }),
+    };
+  });
+}
+function applyImport(data, filename = '导入内容') {
+  embeddedDemo = false;
+  const importedStory = data?.story ?? data;
+  if (importedStory?.version === 1 && Array.isArray(importedStory.members) && Array.isArray(importedStory.messages)) {
+    story = validateImportedStory(importedStory);
+    facts = null;
+    importedKind = 'story';
+  } else {
+    const orders = sanitizeOrders(data);
+    facts = analyzeOrders(orders, { source: 'imported' });
+    story = createStory(facts, 0);
+    importedKind = 'orders';
+  }
+  provenance = 'imported';
+  variant = 0;
+  filename = redactText(String(filename).slice(0, 120));
+  switchMode('import');
+  $('import-status').hidden = false;
+  $('import-status').classList.remove('error');
+  $('import-status').textContent = `${filename} · 已载入${importedKind === 'story' ? '故事' : '餐品记录'}。来源由文件提供者声明。`;
+  render();
+  announce('已载入。请检查台词与来源标签，再分享。');
+}
+async function importFile(file) {
+  if (!file) return;
+  try {
+    if (file.size > 1024 * 1024) throw new Error('文件太大，请导入 1 MB 以内的脱敏 JSON。');
+    const data = JSON.parse(await file.text());
+    applyImport(data, file.name);
+  } catch (error) {
+    $('import-status').hidden = false;
+    $('import-status').classList.add('error');
+    $('import-status').textContent = error instanceof SyntaxError ? '文件不是有效 JSON，请重新导出后导入。' : error.message;
+    announce('未能导入，当前分享卡已保留。', true);
+  } finally {
+    $('file-input').value = '';
+  }
+}
+
+function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
+  ctx.beginPath();
+  ctx.roundRect(x, y, width, height, radius);
+  if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+  if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = 2; ctx.stroke(); }
+}
+function textLines(ctx, text, maxWidth) {
+  const lines = [];
+  for (const paragraph of String(text).split('\n')) {
+    let line = '';
+    for (const char of Array.from(paragraph)) {
+      if (line && ctx.measureText(line + char).width > maxWidth) { lines.push(line); line = char; }
+      else line += char;
+    }
+    lines.push(line);
+  }
+  return lines;
+}
+function paintText(ctx, lines, x, y, lineHeight, color) {
+  ctx.fillStyle = color;
+  lines.forEach((line, index) => ctx.fillText(line, x, y + index * lineHeight));
+}
+function canvasFont(ctx, size, weight = 400) {
+  ctx.font = `${weight} ${size}px ${fontStack}`;
+  ctx.textBaseline = 'top';
+}
+export async function createShareCanvas() {
+  await document.fonts?.ready;
+  const currentStory = structuredClone(story);
+  const source = sourceText(true);
+  const currentProvenance = provenance;
+  const cast = new Map(currentStory.members.map(member => [member.id, member]));
+  const measurement = document.createElement('canvas').getContext('2d');
+  canvasFont(measurement, 28, 500);
+  const rows = currentStory.messages.map(message => {
+    const lines = textLines(measurement, message.text, 690);
+    const widths = lines.map(line => measurement.measureText(line).width);
+    return { message, lines, bubbleWidth: Math.min(738, Math.max(125, Math.max(...widths) + 48)), height: Math.max(86, lines.length * 43 + 38) };
+  });
+  canvasFont(measurement, 22);
+  const systemLines = textLines(measurement, currentStory.systemMessage, 810);
+  canvasFont(measurement, 20);
+  const scopeLines = textLines(measurement, currentStory.sampleLabel, 814);
+  const evidenceLines = textLines(measurement, currentStory.evidence[0] ?? '未提供可核对的餐品依据。', 814);
+  const evidenceHeight = 36 + scopeLines.length * 28 + evidenceLines.length * 30;
+  const chatHeight = rows.reduce((sum, row) => sum + row.height + 62, 0);
+  const height = Math.max(1440, 548 + chatHeight + systemLines.length * 32 + evidenceHeight + 285);
+  const canvas = document.createElement('canvas');
+  canvas.width = 1080;
+  canvas.height = height;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#FFD35B'; ctx.fillRect(0, 0, 1080, height);
+  ctx.fillStyle = '#EEC557';
+  for (let x = 20; x < 1080; x += 29) for (let y = 20; y < height; y += 29) { ctx.beginPath(); ctx.arc(x, y, 1.6, 0, Math.PI * 2); ctx.fill(); }
+  roundRect(ctx, 54, 68, 972, height - 105, 17, '#D3A333');
+  roundRect(ctx, 54, 48, 972, height - 105, 17, '#FFFDF6');
+  canvasFont(ctx, 32, 800); paintText(ctx, ['麦麦小剧场 ●'], 110, 102, 42, '#CE4133');
+  canvasFont(ctx, 21, 550);
+  const badgeWidth = ctx.measureText(source).width + 28;
+  roundRect(ctx, 970 - badgeWidth, 104, badgeWidth, 34, 5, '#FFFDF6', '#E5DAC7');
+  paintText(ctx, [source], 984 - badgeWidth, 110, 25, '#9C8C76');
+  canvasFont(ctx, 79, 850); paintText(ctx, ['我的麦当劳', '背着我开了个群'], 108, 177, 100, '#312822');
+  canvasFont(ctx, 95, 400); paintText(ctx, ['✳'], 898, 245, 110, '#CE4133');
+  roundRect(ctx, 108, 416, 864, 98, 20, '#F8F0DF', '#E5D9C4');
+  const avatarCount = currentStory.members.length;
+  for (let index = 0; index < Math.min(avatarCount, 4); index++) await drawAvatar(ctx, currentStory.members[index].kind, 129 + index * 41, 436, 57);
+  const groupX = Math.min(avatarCount, 4) * 41 + 161;
+  canvasFont(ctx, 27, 700);
+  const groupLines = textLines(ctx, currentStory.groupName, 897 - groupX);
+  paintText(ctx, [groupLines[0] + (groupLines.length > 1 ? '…' : '')], groupX, 433, 35, '#312822');
+  canvasFont(ctx, 19, 400); paintText(ctx, [`${avatarCount} 位群成员 · ${source}`], groupX, 471, 26, '#817363');
+  canvasFont(ctx, 41); paintText(ctx, ['···'], 911, 443, 42, '#312822');
+  let y = 548;
+  for (const row of rows) {
+    const member = cast.get(row.message.speakerId);
+    canvasFont(ctx, 22, 450); paintText(ctx, [member.name], 221, y, 27, '#90816A');
+    roundRect(ctx, 108, y + 32, 89, 89, 21, '#F5ECD9', '#ECE0CC');
+    await drawAvatar(ctx, member.kind, 111, y + 35, 83);
+    const index = rows.indexOf(row);
+    roundRect(ctx, 221, y + 33, row.bubbleWidth, row.height, [6, 22, 22, 22], index % 3 === 0 ? '#FFF0C3' : '#F3EDDF', index % 3 === 0 ? '#ECD5A1' : '#E7DEC9');
+    canvasFont(ctx, 28, 500); paintText(ctx, row.lines, 245, y + 51, 43, '#312822');
+    y += row.height + 62;
+  }
+  canvasFont(ctx, 22, 400);
+  for (const [index, line] of systemLines.entries()) {
+    const content = index === 0 ? `↳ ${line}` : line;
+    paintText(ctx, [content], (1080 - ctx.measureText(content).width) / 2, y + index * 32, 32, '#A38E69');
+  }
+  y += systemLines.length * 32 + 33;
+  roundRect(ctx, 108, y, 864, evidenceHeight, 13, '#F8F3E8', '#E9DFCC');
+  canvasFont(ctx, 20, 600); paintText(ctx, scopeLines, 133, y + 16, 28, '#A08B65');
+  canvasFont(ctx, 20, 400); paintText(ctx, evidenceLines, 133, y + 22 + scopeLines.length * 28, 30, '#8D7D63');
+  y += evidenceHeight + 35;
+  ctx.beginPath(); ctx.setLineDash([6, 7]); ctx.moveTo(108, y); ctx.lineTo(972, y); ctx.strokeStyle = '#D9CDB8'; ctx.lineWidth = 2; ctx.stroke(); ctx.setLineDash([]);
+  canvasFont(ctx, 31, 700); paintText(ctx, ['给你的订单，也开个群。'], 108, y + 31, 40, '#312822');
+  canvasFont(ctx, 20, 450); paintText(ctx, ['麦麦小剧场 · 开源 Skill'], 108, y + 78, 27, '#9C8A6B');
+  ctx.beginPath(); ctx.arc(931, y + 64, 41, 0, Math.PI * 2); ctx.fillStyle = '#CE4133'; ctx.fill();
+  canvasFont(ctx, 54, 450); paintText(ctx, ['↗'], 909, y + 38, 60, '#FFFDF6');
+  canvasFont(ctx, 17, 400);
+  const disclaimer = source === '导入内容' ? '导入内容 · 来源由提供者声明 · 食物群聊为娱乐创作' : currentProvenance === 'mcp' ? '来自近期已完成订单 · 食物群聊为娱乐创作' : `${source} · 未读取真实订单 · 食物群聊为娱乐创作`;
+  paintText(ctx, [disclaimer], (1080 - ctx.measureText(disclaimer).width) / 2, height - 92, 22, '#AB9B85');
+  return canvas;
+}
+async function downloadPng() {
+  if (exporting) return;
+  exporting = true;
+  $('download').disabled = true;
+  $('download').textContent = '正在生成图片…';
+  announce('');
+  try {
+    const canvas = await createShareCanvas();
+    const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+    if (!blob) throw new Error('当前浏览器无法导出图片。');
+    const url = URL.createObjectURL(blob);
+    const link = element('a');
+    link.href = url;
+    link.download = `麦麦小剧场-${provenance}-${Date.now()}.png`;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    announce(`分享图已下载 · ${canvas.width} × ${canvas.height}。`);
+  } catch (error) { announce(`图片生成失败：${error.message}`, true); }
+  finally {
+    exporting = false;
+    $('download').disabled = false;
+    $('download').replaceChildren(element('span', '', '↓'), document.createTextNode(' 下载分享图'));
+    render();
+  }
+}
+async function copyCaption() {
+  const label = provenance === 'demo' ? '（虚构演示）' : provenance === 'self' ? '（自选餐品体验）' : provenance === 'mcp' ? '（来自近期已完成订单）' : '（导入内容，来源由提供者声明）';
+  const text = `${story.caption}\n${label}\n给你的订单，也开个群。\n#麦麦小剧场`;
+  try {
+    let copied = false;
+    if (navigator.clipboard?.writeText) {
+      try { await navigator.clipboard.writeText(text); copied = true; } catch { /* Try the local-file compatible fallback below. */ }
+    }
+    if (!copied) {
+      const input = document.createElement('textarea'); input.value = text; input.style.position = 'fixed'; input.style.opacity = '0'; document.body.append(input); input.select();
+      copied = document.execCommand('copy'); input.remove();
+    }
+    if (!copied) throw new Error('当前浏览器不支持复制。');
+    announce('分享文案已复制。和图片一起发给朋友吧。');
+  } catch { announce('复制未成功，请使用浏览器允许的复制功能。', true); }
+}
+async function collectOrders(event) {
+  event.preventDefault();
+  if (!localService || collecting) return;
+  const token = $('token-input').value.trim();
+  $('token-input').value = '';
+  if (!token) { $('connect-status').hidden = false; $('connect-status').classList.add('error'); $('connect-status').textContent = '请先粘贴麦当劳 MCP Token。'; return; }
+  collecting = true;
+  $('token-input').disabled = true;
+  $('collect-button').disabled = true;
+  $('collect-button').textContent = '正在读取订单…';
+  $('connect-status').hidden = false;
+  $('connect-status').classList.remove('error');
+  $('connect-status').textContent = '正在连接官方 MCP 并读取近期已完成订单，请稍候。';
+  announce('');
+  try {
+    const response = await fetch('/api/collect', { method: 'POST', credentials: 'same-origin', cache: 'no-store', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ token }) });
+    let payload;
+    try { payload = await response.json(); } catch { throw new Error('本机服务未返回可读的订单结果。请重启服务后重试。'); }
+    if (!response.ok || payload.error) {
+      const messages = { unauthorized: 'Token 未通过验证，请重新获取后重试。', auth_failed: 'Token 未通过验证，请重新获取后重试。', invalid_token: 'Token 格式无效，请确认复制完整。', invalid_token_input: 'Token 格式无效，请确认复制完整。', missing_token: '请先粘贴麦当劳 MCP Token。', request_in_progress: '正在读取订单，请等这次连接完成。', local_origin_required: '请从本机小剧场页面发起连接。', no_completed_orders: '没有找到可用的近期已完成订单。', no_orders: '没有找到可用的近期已完成订单。', timeout: '读取超时，请稍后重试。', network_error: '连接未成功，请检查网络后重试。', rate_limited: '官方服务请求较多，请稍后再试。' };
+      throw new Error(messages[payload.error?.code] || '读取未成功，请检查 Token 与网络连接后重试。');
+    }
+    if (payload.source !== 'mcp') throw new Error('服务没有返回可验证的 MCP 读取结果，请重启本机服务后重试。');
+    const orders = sanitizeOrders(payload);
+    const nextFacts = analyzeOrders(orders, { source: 'mcp' });
+    const nextStory = createStory(nextFacts, 0);
+    facts = nextFacts;
+    story = nextStory;
+    variant = 0;
+    importedKind = null;
+    embeddedDemo = false;
+    provenance = 'mcp';
+    render();
+    const warnings = Array.isArray(payload.warnings) ? payload.warnings.slice(0, 3).filter(warning => typeof warning === 'string').map(warning => redactText(warning.slice(0, 160).replaceAll(token, '[已隐藏]'))) : [];
+    $('connect-status').textContent = `已读取 ${facts.sample.orderCount} 笔近期已完成订单，餐品已入群。${warnings.length ? ` ${warnings.join(' ')}` : ''}`;
+    announce('你的剧场已生成。检查台词后，就可以下载分享。');
+  } catch (error) {
+    $('connect-status').classList.add('error');
+    const detail = String(error?.message ?? '');
+    const message = /[\u4e00-\u9fff]/.test(detail) ? detail : '连接未成功，请确认本机服务仍在运行后重试。';
+    $('connect-status').textContent = `${redactText(message.replaceAll(token, '[已隐藏]'))} 当前分享卡已保留。`;
+    announce('读取失败，未生成新的订单故事。', true);
+  } finally {
+    collecting = false;
+    $('token-input').value = '';
+    $('token-input').disabled = false;
+    $('collect-button').disabled = false;
+    $('collect-button').replaceChildren(document.createTextNode('读取我的订单 '), element('span', '', '↗'));
+  }
+}
+function openUpload() { $('file-input').click(); }
+function showHelp() { $('help-dialog').showModal(); }
+
+for (const scenario of demoScenarios) {
+  const details = scenarioDetails[scenario.id] ?? ['other', '选一个场景试试'];
+  const button = element('button', 'scenario-button');
+  button.type = 'button';
+  button.dataset.scenario = scenario.id;
+  button.setAttribute('aria-pressed', 'false');
+  button.append(foodAvatar(details[0], 'scenario-icon'), element('strong', '', scenario.label === '双人搭配' ? '固定搭档' : scenario.label), element('small', '', details[1]));
+  button.addEventListener('click', () => { showDemo(scenario.id); announce('他们换了个群。'); });
+  $('scenario-list').append(button);
+}
+for (const food of foods) {
+  const button = element('button', 'food-option');
+  button.type = 'button';
+  button.append(foodAvatar(food.kind, 'food-avatar'), element('span', '', food.name));
+  const update = () => { button.classList.toggle('selected', selectedFoods.has(food.name)); button.setAttribute('aria-pressed', String(selectedFoods.has(food.name))); };
+  update();
+  button.addEventListener('click', () => {
+    if (selectedFoods.has(food.name)) selectedFoods.delete(food.name);
+    else if (selectedFoods.size < 3) selectedFoods.add(food.name);
+    else return announce('群头像最多坐 3 位。先取消一位，再邀请新朋友。', true);
+    update();
+    announce('');
+  });
+  $('food-list').append(button);
+}
+for (const button of document.querySelectorAll('[data-mode]')) button.addEventListener('click', () => {
+  const next = button.dataset.mode;
+  switchMode(next);
+  if (next === 'demo') showDemo(activeScenario);
+});
+for (const button of document.querySelectorAll('[data-mode]')) button.addEventListener('keydown', event => {
+  const buttons = [...document.querySelectorAll('[data-mode]')];
+  if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+  event.preventDefault();
+  const index = buttons.indexOf(button);
+  const next = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + buttons.length) % buttons.length;
+  buttons[next].focus(); buttons[next].click();
+});
+$('self-generate').addEventListener('click', showSelf);
+$('reroll').addEventListener('click', () => {
+  if (importedKind === 'story') return;
+  variant += 1;
+  story = provenance === 'self' ? createSelfStory(activeSelfFoods, variant) : createStory(facts, variant);
+  render();
+  announce('下一句来了。');
+});
+$('download').addEventListener('click', downloadPng);
+$('copy').addEventListener('click', copyCaption);
+$('upload-button').addEventListener('click', openUpload);
+$('file-input').addEventListener('change', event => importFile(event.target.files[0]));
+$('import-help-button').addEventListener('click', showHelp);
+$('close-dialog').addEventListener('click', () => $('help-dialog').close());
+$('dialog-upload').addEventListener('click', () => { $('help-dialog').close(); openUpload(); });
+$('help-dialog').addEventListener('click', event => { if (event.target === $('help-dialog')) { const rect = $('help-dialog').getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) $('help-dialog').close(); } });
+$('connect-form').addEventListener('submit', collectOrders);
+if (!localService) {
+  $('token-input').disabled = true; $('collect-button').disabled = true;
+  $('connect-help').textContent = '真实订单请打开本机服务，启动方法见作品包中的使用说明。此单文件页面仍可自选体验、导入文件和下载图片。';
+}
+showDemo(activeScenario);
+if (globalThis.__MCD_THEATER_INITIAL_STORY__) {
+  try {
+    const initial = globalThis.__MCD_THEATER_INITIAL_STORY__;
+    applyImport(initial, '助手生成的故事');
+    // Only a locally bundled demo may retain its declared demo label. File uploads never enter this branch.
+    if (initial.source === 'demo') {
+      provenance = 'demo'; embeddedDemo = true;
+      story.sampleLabel = safeText(initial.sampleLabel ?? '虚构演示', '样本范围', 160);
+      switchMode('demo'); render(); announce('内置虚构演示已加载。');
+    }
+  }
+  catch (error) { announce(`附带故事未能载入：${error.message}`, true); }
+} else if (new URLSearchParams(location.search).get('story') === '/story.json' && /^https?:$/.test(location.protocol)) {
+  try {
+    const response = await fetch('/story.json', { credentials: 'same-origin' });
+    if (!response.ok) throw new Error('未找到故事文件');
+    const data = await response.json();
+    applyImport(data, '助手生成的故事');
+  } catch (error) { announce(`故事未能载入：${error.message}。请用“我的订单”手动导入。`, true); }
+}
+if (new URLSearchParams(location.search).get('mode') === 'connect') {
+  switchMode('connect');
+  if (!$('token-input').disabled) $('token-input').focus();
+}
+</script>
+</body>
+</html>

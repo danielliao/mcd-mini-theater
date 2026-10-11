@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+generated/
+work/
+node_modules/
+.DS_Store
+.playwright-cli/

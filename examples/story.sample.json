@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "source": "demo",
+  "themeId": "repeat",
+  "title": "它们的群聊，有固定座位",
+  "groupName": "固定阵容群",
+  "members": [
+    {
+      "id": "food-1",
+      "name": "板烧鸡腿堡",
+      "kind": "burger"
+    },
+    {
+      "id": "food-2",
+      "name": "中薯条",
+      "kind": "fries"
+    },
+    {
+      "id": "food-3",
+      "name": "无糖可乐",
+      "kind": "drink"
+    }
+  ],
+  "messages": [
+    {
+      "speakerId": "food-1",
+      "text": "群名怎么还叫“临时搭伙群”？"
+    },
+    {
+      "speakerId": "food-2",
+      "text": "这 5 笔里你有 5 笔在，已经是固定阵容了。"
+    },
+    {
+      "speakerId": "food-3",
+      "text": "我也在这 5 笔里出现了 3 笔。"
+    },
+    {
+      "speakerId": "food-1",
+      "text": "那我申请把“临时”两个字撤掉。"
+    }
+  ],
+  "systemMessage": "群名已修改为「固定阵容群」。",
+  "evidence": [
+    "这 5 笔订单中，「板烧鸡腿堡」出现在 5 笔；同单多份只算一次出现。",
+    "这 5 笔订单中，「中薯条」出现在 4 笔；同单多份只算一次出现。",
+    "这 5 笔订单中，「无糖可乐」出现在 3 笔；同单多份只算一次出现。"
+  ],
+  "caption": "我的餐品，背着我开了个群。你的会聊什么？",
+  "sampleLabel": "虚构演示｜5 笔虚构订单",
+  "disclaimer": "这是虚构演示，未读取真实订单。食品拟人台词为创作，不代表实际聊天。"
+}
